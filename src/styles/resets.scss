@@ -1,0 +1,66 @@
+a {
+    all: unset;
+    cursor: pointer;
+}
+
+button {
+    width: 100%;
+    padding: 0;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    /* отображаем курсор в виде руки при наведении; некоторые
+  считают, что необходимо оставлять стрелочный вид для кнопок */
+    cursor: pointer;
+    &:focus {
+        outline: none;
+    }
+}
+
+// select {
+//   appearance: none;
+//   -webkit-appearance: none;
+//   -moz-appearance: none;
+//   background-image: none;
+//   background-color: transparent;
+//   border: none;
+//   /* For IE10 */
+//   select::-ms-expand {
+//     display: none;
+//   }
+//   // text-indent: 1px;
+//   // text-overflow: '';
+//   &:focus {
+//     outline: none;
+//   }
+// }
+
+// fieldset {
+//   appearance: none;
+//   -webkit-appearance: none;
+//   -moz-appearance: none;
+//   background-image: none;
+//   border: none;
+// }
+
+// input {
+//   border: none;
+//   outline: none;
+//   border-style: none;
+//   border-color: transparent;
+//   overflow: hidden;
+//   -webkit-box-shadow: none;
+//   -moz-box-shadow: none;
+//   box-shadow: none;
+//   resize: none; /*remove the resize handle on the bottom right*/
+//   padding: 0;
+//   margin: 0;
+// }
+
+li {
+    list-style: none;
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+}

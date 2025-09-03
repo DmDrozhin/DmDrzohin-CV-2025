@@ -1,0 +1,92 @@
+
+// ICON OK-DVERI ***
+.article.art > .art__list.list >.list__itm a > span.ok-icon-logo {
+  background-image: url('@/assets/svg/ok.svg');
+  background-repeat: no-repeat;
+  background-position-y: 2px;
+  // background-color: #f0e2e2;
+}
+
+// PREVENT SELECTION OF CONTENT
+@mixin prev-slct {
+  -webkit-user-select: none;  
+  -moz-user-select: none;    
+  -ms-user-select: none;      
+  user-select: none;
+}
+
+// CONTACT LINKS
+@mixin contact {
+  position: relative;
+  // H-LIGHTERS
+  // outline: 0.5px dotted yellow;
+  & :hover { background-color: $grey-66; }
+  & :hover::before {
+    content: '';
+    position: absolute;
+    display: block;
+    background-color: $green-md;
+    z-index: 1;
+    @include media('max', 'md') {
+      height: 100%;
+      width: 5px;
+      top: 0px;
+      left: 0px;
+    } 
+    // H-LIGHTER
+    @include media('min', 'md') {
+      height: 5px;
+      width: 100%;
+      top: -5px;
+      left: 0;
+    } 
+    // END H-LIGHTERS
+  }
+
+  &__link {  
+    @include fr-c;
+    @include media('min', 'xs') { padding: 15px 20px 15px 15px; }
+    @include media('min', 'md') { padding: 0px 15px; }
+    // @include media('min', 'lg') { padding: 0px 15px; }
+  }
+  &__icon {
+    // background-color: #c6bbbb;
+    // background-image: url('@/assets/svg/gmail.svg');
+    background-position-y: 2px; // *** ICON POSITION ***
+    background-repeat: no-repeat;
+    $sz: 30px;
+    width: $sz;
+    height: $sz;
+    margin-right: 5px;
+  }
+  &__txt {
+    color: $light;
+    font-weight: 600;
+    line-height: 34px;
+    letter-spacing: 0.2px;
+    @include media('min', 'xs') { font-size: 18px; }
+    @include media('min', 'md') {  font-size: 14px;}
+  }
+  @include media('min', 'xs') {
+    & ::after {
+      content: '';
+      position: absolute;
+      display: block;
+      border-bottom: 0.5px dotted $green-md;
+      bottom: -1px;
+      left: 40px;
+      right: 40px;
+    }
+  }
+  @include media('min', 'md') { & ::after {content: none; } }
+}
+// END CONTACT LINKS
+
+@mixin unselect {
+  user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+}
+
+// @include media('min', 'sm') { }
+// @include media('min', 'lg') { }

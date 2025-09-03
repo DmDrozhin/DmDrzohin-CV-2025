@@ -1,0 +1,65 @@
+// General breakpoints
+// $breaks: ("sm":320px, "md":768px, "lg":1140px);
+$breaks: ("xs": 0px, "s": 360px, "sm": 576px, "md": 768px, "lg": 992px, 'xl': 1200px, 'xxl': 1400px);
+
+@mixin media($min-max, $media) {
+  @each $size, $resolution in $breaks {
+    @if $media == $size {
+      @media only screen and (#{$min-max}-width: $resolution) {
+        @content;
+      }
+    }
+  }
+};
+
+// The page
+@mixin p-lg {
+  @include media('min', 'xs') { padding: 0 15px; }
+  @include media('min', 's') { padding: 0 50px; }
+  @include media('min', 'sm') { padding: 0 20px; }
+  // @include media('min', 'md') { max-width: 738px; }
+  // @include media('min', 'lg') { max-width: 827px; }
+  // @include media('min', 'xl') { max-width: 827px; }
+  // @include media('min', 'xxl') { max-width: 827px; }
+  // border-right: 0.5px solid red;
+  // border-left: 0.5px solid red;
+};
+
+// Page container
+@mixin container-width {
+  @include media('min', 's') { width: 330px; }
+  @include media('min', 'sm') { width: 536px; }
+  @include media('min', 'lg') { width: 1400px; }
+};
+
+@mixin container-paddings {
+  @include media('min', 'sm') { padding: 0 10px; }
+  @include media('min', 'lg') { padding: 0 20px; }
+};
+
+@mixin marker {
+  @include media('min', 'xs') { background-color: rgb(186, 255, 152); }
+  // min 0
+  @include media('min', 's') { background-color: rgb(237, 166, 206); }
+  // min 360
+  @include media('min', 'sm') { background-color: rgb(180, 210, 240); }
+  // min 576
+  @include media('min', 'md') { background-color: rgb(205, 255, 213); }
+  // min 768
+  @include media('min', 'lg') { background-color: rgb(251, 250, 208); }
+  // min 992
+}
+
+// @include media('min', 'xs') { } // 0
+// @include media('min', 'sm') { } // 576
+// @include media('min', 'md') { } // 768
+// @include media('min', 'lg') { } // 992
+// @include media('min', 'xl') { } // 1200
+
+// @mixin marker {
+//   @include media('min', 'xs') { border: 1px solid rgb(137, 240, 128); }
+//   @include media('min', 's') { border: 1px solid rgb(189, 10, 111); }
+//   @include media('min', 'sm') { border: 1px solid rgb(76, 138, 201); }
+//   @include media('min', 'md') { border: 1px solid rgb(27, 203, 53); }
+//   @include media('min', 'lg') { border: 1px solid rgb(225, 218, 22); }
+// }
