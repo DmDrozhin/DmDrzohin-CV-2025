@@ -2,6 +2,8 @@ import { createApp } from 'vue';
 import '@/styles/basic.scss';
 import App from './App.vue';
 import '@mdi/font/css/materialdesignicons.css';
+import { createPinia } from 'pinia';
 import vuetify from '@/plugins/vuetify.js';
+const pinia = createPinia();
 
-createApp(App).use(vuetify).mount('#app');
+createApp(App).use(vuetify).use(pinia).mount('#app');

@@ -1,6 +1,8 @@
 <script setup>
 import { computed, ref, watch, watchEffect } from 'vue';
 import { useDisplay, useTheme } from 'vuetify';
+import { useMainStore } from '@/stores/main.store.js';
+const store = useMainStore();
 
 const drawer = ref(true); // будет открыт по умолчанию
 const display = useDisplay();
@@ -31,13 +33,13 @@ watchEffect(() => {
 // );
 </script>
 <template>
-  <div class="resume">
-    <v-app-bar class="resume__header" absolute>
+  <div class="my-resume">
+    <v-app-bar class="my-resume__header" absolute>
       <v-toolbar-title>Моё приложение</v-toolbar-title>
       <!-- Бургер только на мобильных -->
       <v-btn
         v-if="isMobile.value"
-        class="resume__burger"
+        class="my-resume__burger"
         icon
         @click="drawer = !drawer"
       >
@@ -47,7 +49,7 @@ watchEffect(() => {
     <!-- Боковая панель справа -->
     <v-navigation-drawer
       v-model="drawer"
-      class="resume__sidebar"
+      class="my-resume__sidebar"
       location="right"
       :permanent="!isMobile.value"
       :mobile="isMobile.value"
@@ -73,7 +75,7 @@ watchEffect(() => {
   </div>
 </template>
 <style lang="scss" scoped>
-.resume {
+.my-resume {
   width: 100%;
   max-width: 794px;
   min-height: 1123px;
