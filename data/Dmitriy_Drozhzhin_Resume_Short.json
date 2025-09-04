@@ -1,0 +1,59 @@
+{
+  "name": "Dmitriy Drozhzhin",
+  "title": "Frontend Developer (Vue.js)",
+  "contacts": {
+    "email": "ddrozhin@gmail.com",
+    "github": "https://github.com/DmDrozhin",
+    "telegram": "@DmDrozhin",
+    "phone": "+38 (095) 285-64-34"
+  },
+  "experience": [
+    {
+      "position": "Frontend Developer (Vue.js)",
+      "company": "Current Project",
+      "period": "2023 – Present",
+      "achievements": [
+        "Built and maintained Vue.js 2/3 components with Composition and Options API.",
+        "Developed adaptive, pixel-perfect layouts from Figma designs.",
+        "Integrated Vuetify and customized UI components.",
+        "Tested components with BrowserStack and debugged issues."
+      ]
+    },
+    {
+      "position": "Web / E-commerce Developer",
+      "company": "OkDveri",
+      "period": "02.2019 – 10.2023",
+      "achievements": [
+        "Built an e-commerce site on WordPress + Elementor Pro.",
+        "Developed a Vue.js app to automate product catalog uploads.",
+        "Improved UX and design, boosting conversion rates."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Economical Institute of Management, Kiev",
+      "degree": "Specialist in Management"
+    }
+  ],
+  "skills": [
+    "Vue.js (Composition API, Options API)",
+    "Vuetify",
+    "JavaScript (ES6+)",
+    "TypeScript",
+    "REST APIs",
+    "HTML",
+    "CSS/SCSS",
+    "Responsive Design",
+    "Pixel Perfect",
+    "Git",
+    "Swiper",
+    "UI/UX principles",
+    "Figma"
+  ],
+  "languages": {
+    "English": "Work proficiency",
+    "Ukrainian": "Native",
+    "Russian": "Native"
+  }
+}

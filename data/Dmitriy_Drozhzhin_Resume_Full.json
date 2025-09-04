@@ -1,0 +1,103 @@
+{
+  "name": "Dmitriy Drozhzhin",
+  "title": "Frontend Developer (Vue.js)",
+  "contacts": {
+    "email": "ddrozhin@gmail.com",
+    "github": "https://github.com/DmDrozhin",
+    "telegram": "@DmDrozhin",
+    "phone": "+38 (095) 285-64-34"
+  },
+  "experience": [
+    {
+      "position": "Frontend Developer (Vue.js)",
+      "company": "Current Project",
+      "period": "2023 – Present",
+      "achievements": [
+        "Develop Vue.js 2/3 components using both Composition API and Options API.",
+        "Implement responsive design and pixel-perfect layout based on Figma and other mockups.",
+        "Create and maintain global SCSS files (variables, mixins, helpers).",
+        "Debug and test components, identify and fix issues.",
+        "Develop components with Swiper Element integration.",
+        "Migration components from Options API to Composition API.",
+        "Actively use and customize Vuetify components to match design systems.",
+        "Implement business logic inside Vue components.",
+        "Perform cross-browser testing with BrowserStack.",
+        "Collaborate with frontend and backend teams."
+      ]
+    },
+    {
+      "position": "Web / E-commerce Developer",
+      "company": "OkDveri",
+      "period": "02.2019 – 10.2023",
+      "achievements": [
+        "Developed and maintained e-commerce store on WordPress + Elementor Pro.",
+        "Created a Vue.js application to automate catalog uploads, generating product variations, attributes, and SEO text tables.",
+        "Improved product page UI/UX, which helped increase conversion rates.",
+        "Implemented responsive pixel-perfect design and SEO-friendly content.",
+        "Designed branding graphics, advertising materials, and product illustrations.",
+        "Administered hosting and Google accounts, launched SMM campaigns."
+      ]
+    },
+    {
+      "position": "Securities Transaction Specialist",
+      "company": "NCH Advisors Inc. (Ukraine rep. office)",
+      "period": "2002 – 10.2017",
+      "achievements": [
+        "Managed investment and custody bank accounts.",
+        "Settled securities transactions (local shares, ADRs/GDRs, bonds).",
+        "Maintained investment records and provided reporting to HQ.",
+        "Coordinated with banks, custodians, notaries, and regulators."
+      ]
+    },
+    {
+      "position": "System Administrator (IT Department)",
+      "company": "NCH Advisors Inc. (Ukraine rep. office)",
+      "period": "1996 – 2002",
+      "achievements": [
+        "Maintained office computers, network, and equipment.",
+        "Provided IT support and solved software issues.",
+        "Planned and documented office network and phone systems.",
+        "Maintained NetWare and FreeBSD servers."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Economical Institute of Management, Kiev",
+      "degree": "Specialist in Management"
+    }
+  ],
+  "skills": [
+    "Vue.js (Composition API, Options API)",
+    "Pinia",
+    "Vuex",
+    "Vue Router",
+    "Vuetify",
+    "JavaScript (ES6+)",
+    "TypeScript",
+    "REST APIs",
+    "Node.js",
+    "HTML",
+    "CSS/SCSS",
+    "Responsive Design",
+    "Pixel Perfect",
+    "Git",
+    "Swiper",
+    "Cross-browser testing",
+    "BrowserStack",
+    "UI/UX principles",
+    "Figma",
+    "Corel Draw"
+  ],
+  "certificates": [
+    "JavaScript Essential 2021 (ITDVN)",
+    "JavaScript Patterns (ITDVN)",
+    "HTML/CSS (ITDVN)",
+    "Vue.js (ITDVN)"
+  ],
+  "languages": {
+    "English": "Work proficiency",
+    "Ukrainian": "Native",
+    "Russian": "Native"
+  }
+}

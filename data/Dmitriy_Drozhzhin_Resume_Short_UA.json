@@ -1,0 +1,59 @@
+{
+  "name": "Дмитро Дрожжин",
+  "title": "Frontend Розробник (Vue.js)",
+  "contacts": {
+    "email": "ddrozhin@gmail.com",
+    "github": "https://github.com/DmDrozhin",
+    "telegram": "@DmDrozhin",
+    "phone": "+38 (095) 285-64-34"
+  },
+  "experience": [
+    {
+      "position": "Frontend Розробник (Vue.js)",
+      "company": "Поточний проєкт",
+      "period": "2023 – дотепер",
+      "achievements": [
+        "Розробка компонентів Vue.js 2/3 із використанням Composition та Options API.",
+        "Адаптивна та pixel-perfect верстка за макетами з Figma.",
+        "Інтеграція та кастомізація компонентів Vuetify.",
+        "Тестування та налагодження компонентів (BrowserStack)."
+      ]
+    },
+    {
+      "position": "Веб / E-commerce Розробник",
+      "company": "OkDveri",
+      "period": "02.2019 – 10.2023",
+      "achievements": [
+        "Створив інтернет-магазин на WordPress + Elementor Pro.",
+        "Розробив Vue.js-застосунок для автоматизації завантаження товарів.",
+        "Оптимізував UX та дизайн, підвищивши конверсію."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Економічний інститут менеджменту, Київ",
+      "degree": "Спеціаліст з менеджменту"
+    }
+  ],
+  "skills": [
+    "Vue.js (Composition API, Options API)",
+    "Vuetify",
+    "JavaScript (ES6+)",
+    "TypeScript",
+    "REST API",
+    "HTML",
+    "CSS/SCSS",
+    "Адаптивна верстка",
+    "Pixel Perfect",
+    "Git",
+    "Swiper",
+    "UI/UX принципи",
+    "Figma"
+  ],
+  "languages": {
+    "Англійська": "Робочий рівень",
+    "Українська": "Рідна",
+    "Російська": "Рідна"
+  }
+}
