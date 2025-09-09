@@ -1,12 +1,17 @@
 {
   "name": "Дмитро Дрожжин",
   "title": "Frontend Розробник (Vue.js)",
-  "contacts": {
-    "email": "ddrozhin@gmail.com",
-    "github": "https://github.com/DmDrozhin",
-    "telegram": "@DmDrozhin",
-    "phone": "+38 (095) 285-64-34"
-  },
+  "location": "Київ • Відкритий до віддаленої роботи",
+  "avatar": "DmDrzohin.jpeg",
+  "contacts": [
+    { "item": "ddrozhin@gmail.com", "link": "mailto:ddrozhin@gmail.com", "icon": "gmail.svg" },
+    { "item": "github.com/DmDrozhin", "link": "https://github.com/DmDrozhin", "icon": "github.svg" },
+    { "item": "@DmDrozhin", "link": "https://t.me/DmDrozhin", "icon": "telegram.svg" },
+    { "item": "+38 (095) 285-64-34", "link": "tel:+380952856434", "icon": "phone.svg" }
+  ],
+    "summary": [
+    "Frontend розробник (Vue.js) з понад 3 роками досвіду у розробці масштабованих веб-застосунків на базі Vue 2/3, із глибоким володінням як Composition API, так і Options API. Маю експертизу у створенні багаторазових компонентів з адаптивною та pixel-perfect версткою, а також у гнучкій кастомізації елементів бібліотеки Vuetify відповідно до дизайн-системи проєкту. Значну увагу приділяю якості стилізації: розробив структуровану систему SCSS-змінних, міксинів і хелперів, що забезпечує стандартизований, читабельний та підтримуваний код. У рамках останнього проєкту інтегрував Swiper Element для реалізації інтерактивних UI-рішень, здійснив міграцію компонентів з Options API до Composition API, реалізував бізнес-логіку у Vue-компонентах та забезпечив ефективну взаємодію з бекендом — включно з формуванням, тестуванням та оптимізацією API-ендпоінтів."
+  ],
   "experience": [
     {
       "position": "Frontend Розробник (Vue.js)",

@@ -1,16 +1,46 @@
-// General breakpoints
-// $breaks: ("sm":320px, "md":768px, "lg":1140px);
-$breaks: ("xs": 0px, "s": 360px, "sm": 576px, "md": 768px, "lg": 992px, 'xl': 1200px, 'xxl': 1400px);
-
-@mixin media($min-max, $media) {
-  @each $size, $resolution in $breaks {
-    @if $media == $size {
-      @media only screen and (#{$min-max}-width: $resolution) {
-        @content;
-      }
+@mixin Prevent-select {
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+@mixin Scrollbar {
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+        width: 6px;
     }
-  }
-};
+    &::-webkit-scrollbar-track {
+        background: transparent;
+        border-radius: 4px;
+        width: 6px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: $black-lighten3;
+        border-radius: 4px;
+        width: 6px;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+        background: $black-lighten3;
+    }
+}
+@mixin Chars-limit($limit: 4) {
+    max-width: #{$limit}ch;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+@mixin Lines-limit($limit: 4) {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    line-clamp: $limit;
+    -webkit-line-clamp: $limit;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+@mixin Txt-ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
 // The page
 @mixin p-lg {

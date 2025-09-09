@@ -1,5 +1,4 @@
 <script setup>
-import { ref } from 'vue';
 import ResumeLayout from '@/components/ResumeLayout.vue';
 </script>
 

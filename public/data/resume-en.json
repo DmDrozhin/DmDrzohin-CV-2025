@@ -1,17 +1,22 @@
 {
   "name": "Dmitriy Drozhzhin",
   "title": "Frontend Developer (Vue.js)",
-  "contacts": {
-    "email": "ddrozhin@gmail.com",
-    "github": "https://github.com/DmDrozhin",
-    "telegram": "@DmDrozhin",
-    "phone": "+38 (095) 285-64-34"
-  },
+  "location": "Location: Kiev, UA, Open to Remote",
+  "avatar": "DmDrzohin.jpeg",
+  "contacts": [
+    { "item": "ddrozhin@gmail.com", "link": "mailto:ddrozhin@gmail.com", "icon": "gmail.svg" },
+    { "item": "github.com/DmDrozhin", "link": "https://github.com/DmDrozhin", "icon": "github.svg" },
+    { "item": "@DmDrozhin", "link": "https://t.me/DmDrozhin", "icon": "telegram.svg" },
+    { "item": "+38 (095) 285-64-34", "link": "tel:+380952856434", "icon": "phone.svg" }
+  ],
+  "summary": [
+    "Frontend Developer (Vue.js) with over 3 years of experience in building scalable web applications using Vue 2/3, with deep expertise in both Composition API and Options API. Skilled in developing reusable components with responsive and pixel-perfect layouts, as well as in flexible customization of Vuetify components to match project design systems. Strong focus on styling quality: created a structured SCSS system with variables, mixins, and helpers to ensure standardized, readable, and maintainable code. In the latest project, integrated Swiper Element for interactive UI solutions, migrated components from Options API to Composition API, implemented business logic in Vue components, and collaborated closely with the backend team on designing, testing, and optimizing API endpoints."
+  ],
   "experience": [
     {
       "position": "Frontend Developer (Vue.js)",
-      "company": "Current Project",
-      "period": "2023 – Present",
+      "company": "TalentFly",
+      "period": "02.2024 – 09.2025",
       "achievements": [
         "Develop Vue.js 2/3 components using both Composition API and Options API.",
         "Implement responsive design and pixel-perfect layout based on Figma and other mockups.",

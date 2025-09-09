@@ -1,14 +1,15 @@
+$white: #fff;
 $light: #fff;
 $black: #000000;
-$bg-1: #eaeaea; // header background
-$bg-2: #fbfbfb; // main page background
-// $bg-2: #f8f8f8; // main page background
+$background-header: #eaeaea; // header background
+$background-main: #fbfbfb; // main page background
+// $background-2: #f8f8f8; // main page background
 
-$grey-80: #808080; // bg under contacts
-$grey-66 : #666666; // section titles
-$grey-95: #969595; // Price block net price
-$grey-E6: #E6E6E6; // bg of aside
-$grey-D1: #d2d1d1; // radius bg of title char
+$background-contacts: #808080; // background under contacts
+$txt-titles: #666666; // section titles
+$grey-dark-3: #969595; // Price block net price
+$background-sidebar: #E6E6E6; // background of aside
+$background-chip: #d2d1d1; // radius background of title char
 
 $green-start: #C3F544;
 $green-end: #74A400;
