@@ -8,7 +8,22 @@ export const customTheme = {
         background: '#FFFFFF',
         surface: '#F5F5F5',
         error: '#B00020',
-        success: '#4CAF50'
+        success: '#4CAF50',
+        icon: '#FFF',
+        'background-header': '#eaeaea',
+        'background-page': '#fbfbfb',
+        'background-meta': '#808080',
+        'background-divider': '#969595',
+        'background-gradient-start': '#C3F544',
+        'background-gradient-middle': '#9CCC65',
+        'background-gradient-end': '#74A400',
+        'background-skills-button': '#BDBDBD'
+      },
+      variables: {
+        'hover-opacity': 0.05,
+        'pressed-opacity': 0.1,
+        'activated-opacity': 0.15,
+        'theme-overlay-multiplier': 0.7
       }
     },
     dark: {
@@ -18,38 +33,48 @@ export const customTheme = {
         background: '#121212',
         surface: '#1E1E1E',
         error: '#CF6679',
-        success: '#81C784'
-      }
-    },
-    corporate: {
-      colors: {
-        primary: '#0A66C2', // синий LinkedIn-стиль
-        secondary: '#FFB400', // акцент жёлтый
-        background: '#F9FAFB',
-        surface: '#FFFFFF',
-        error: '#D32F2F',
-        success: '#388E3C'
+        success: '#81C784',
+        icon: '#000',
+        'background-header': '#808080',
+        'background-page': '#E6E6E6',
+        'background-meta': '#4b4a4a',
+        'background-divider': '#fbfbfb',
+        'background-gradient-start': '#7CB342',
+        'background-gradient-middle': '#689F38',
+        'background-gradient-end': '#33691E',
+        'background-skills-button': '#BDBDBD'
+      },
+      variables: {
+        'hover-opacity': 0.15,
+        'pressed-opacity': 0.1,
+        'activated-opacity': 0.15,
+        'theme-overlay-multiplier': 0.7
       }
     }
-  }
-};
-
-// 📱 Брейкпоинты (можно оставить дефолт)
-export const customDisplay = {
-  mobileBreakpoint: 'sm',
-  thresholds: {
-    xs: 0,
-    sm: 600,
-    md: 960,
-    lg: 1280,
-    xl: 1920
   }
 };
 export const defaults = {
   VBtn: {
     style: 'text-transform: none;'
+  },
+  global: {
+    style: {
+      fontFamily: 'Segoe UI, sans-serif'
+    }
   }
 };
+
+// 📱 Брейкпоинты (можно оставить дефолт)
+// export const customDisplay = {
+//   mobileBreakpoint: 'sm',
+//   thresholds: {
+//     xs: 0,
+//     sm: 600,
+//     md: 960,
+//     lg: 1280,
+//     xl: 1920
+//   }
+// };
 const colors = {
   background: '#FFFFFF',
   error: '#B00020',
@@ -66,3 +91,13 @@ const colors = {
   surface_variant: '#424242',
   warning: '#FB8C00'
 };
+
+// components	Регистрирует компоненты Vuetify (обычно импортируются как * as components)
+// directives	Регистрирует директивы Vuetify (например, v-ripple, v-scroll)
+// theme	Настройка темы: цвета, светлая/тёмная тема, кастомные палитры
+// display	Управление брейкпоинтами и адаптивностью интерфейса
+// defaults	Глобальные значения props для компонентов (например, VBtn: { rounded: 'lg' })
+// aliases	Создание алиасов для компонентов (например, MyBtn: VBtn)
+// icons	Настройка иконок: выбор набора, добавление кастомных
+// locale	Локализация: язык, форматирование дат, чисел и т.д.
+// ssr	Настройки для серверного рендеринга (если используешь SSR)

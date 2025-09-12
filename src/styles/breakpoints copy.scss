@@ -1,0 +1,47 @@
+@use 'sass:map';
+@use 'sass:string';
+@use 'vuetify/settings' as v;
+
+// Берём карту брейкпоинтов из Vuetify
+$breakpoints: v.$display-breakpoints;
+
+// Миксин: от заданного брейкпоинта и ниже
+@mixin media-down($bp) {
+  $value: map.get($breakpoints, string.unquote($bp));
+
+  @if $value != null {
+    @media (max-width: #{$value}px) {
+      @content;
+    }
+  } @else {
+    @warn "Unknown breakpoint `#{$bp}` in media-down().";
+  }
+}
+
+// Миксин: от заданного брейкпоинта и выше
+@mixin media-up($bp) {
+  $value: map.get($breakpoints, string.unquote($bp));
+
+  @if $value != null {
+    @media (min-width: #{$value}px) {
+      @content;
+    }
+  } @else {
+    @warn "Unknown breakpoint `#{$bp}` in media-up().";
+  }
+}
+
+// Миксин: между двумя брейкпоинтами
+@mixin media-between($bp-min, $bp-max) {
+  $min: map.get($breakpoints, string.unquote($bp-min));
+  $max: map.get($breakpoints, string.unquote($bp-max));
+
+  @if $min != null and $max != null {
+    @media (min-width: #{$min}px) and (max-width: #{$max}px) {
+      @content;
+    }
+  } @else {
+    @warn "Unknown breakpoints `#{$bp-min}` or `#{$bp-max}` in media-between().";
+  }
+}
+@debug $breakpoints;

@@ -1,30 +1,28 @@
-@use './fonts.scss' as *;
-// @use './resets.scss' as *;
-// @use './colors.scss' as *;
-// @use './other.scss' as *;
-
 :root {
-    padding: 0;
-    margin: 0;
-    @page {
-        size: A4 landscape;
-    }
-    
+  padding: 0;
+  margin: 0;
+  @page {
+    size: A4 landscape;
+  }
+  font-family: 'Segoe UI', sans-serif;
+  --v-font-family: 'Segoe UI', sans-serif;
+  --v-hover-opacity: 0.04;
+  --v-pressed-opacity: 0.08;
+  --v-activated-opacity: 0.12;
 }
 html {
-    -webkit-font-smoothing: antialiased;
-    font-family: 'Segoe UI', Helvetica, sans-serif;
-    height: 100%;
-    width: 100%;
-    box-sizing: border-box;    
-    scrollbar-gutter: stable both-edges;
-    font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  scrollbar-gutter: stable both-edges;
+  font-size: 16px;
 }
 body {
-    height: inherit;
-    width: inherit;
-    // mobile viewport bug fix */
-    height: -webkit-fill-available;
-    scroll-behavior: smooth;
-    overflow-x: hidden;
+  height: inherit;
+  width: inherit;
+  // mobile viewport bug fix */
+  height: -webkit-fill-available;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }

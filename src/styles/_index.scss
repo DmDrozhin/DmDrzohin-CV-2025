@@ -1,3 +1,11 @@
-@forward './helpers.scss';
+@use './basic.scss' as *;
+@use './colors.scss' as *;
+@use './helpers.scss' as *;
+@use './fonts.scss' as *;
+@use './breakpoints.scss' as *;
+// @forward './basic.scss';
+@forward './basic.scss';
 @forward './colors.scss';
-
+@forward './helpers.scss';
+@forward './fonts.scss';
+@forward './breakpoints.scss';
