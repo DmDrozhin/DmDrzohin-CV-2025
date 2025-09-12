@@ -5,7 +5,6 @@
 </template>
 <style scoped lang="scss">
 .page-loader {
-  outline: 1px solid firebrick;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -17,7 +16,6 @@
   text-align: center;
   background: rgba(#FFF, 0.2);
   backdrop-filter: blur(8px);
-  border-radius: 4px;
   z-index: 1100;
 }
 </style>

@@ -8,9 +8,6 @@ export const useMainStore = defineStore('main', () => {
   const error = ref(null);
   const currentTheme = ref('light');
 
-  function toggleTheme() {
-    currentTheme.value = currentTheme.value === 'light' ? 'dark' : 'light';
-  }
   function setTheme(themeName) {
     currentTheme.value = themeName;
   }
@@ -20,7 +17,7 @@ export const useMainStore = defineStore('main', () => {
     error.value = null;
 
     try {
-      await new Promise((resolve) => setTimeout(resolve, 3000));
+      await new Promise((resolve) => setTimeout(resolve, 1500));
       const response = await fetch(`/data/resume-${lang}.json`);
       if (!response.ok) {
         throw new Error('Failed to load resume');
@@ -40,7 +37,6 @@ export const useMainStore = defineStore('main', () => {
     error,
     fetchResume,
     currentTheme,
-    toggleTheme,
     setTheme
   };
 });
