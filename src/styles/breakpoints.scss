@@ -1,0 +1,59 @@
+@use 'sass:map';
+@use 'sass:string';
+
+// Breakpoints map
+$breakpoints: (
+  xxs: '(max-width: 550px)',
+  xs: '(max-width: 599.98px)',
+  sm: '(min-width: 600px) and (max-width: 959.98px)',
+  md: '(min-width: 960px) and (max-width: 1279.98px)',
+  lg: '(min-width: 1280px) and (max-width: 1919.98px)',
+  xl: '(min-width: 1920px) and (max-width: 2559.98px)',
+  xxl: '(min-width: 2560px)',
+  sm-down: '(max-width: 959.98px)',
+  md-down: '(max-width: 1279.98px)',
+  lg-down: '(max-width: 1919.98px)',
+  xl-down: '(max-width: 2559.98px)',
+  sm-up: '(min-width: 600px)',
+  md-up: '(min-width: 960px)',
+  lg-up: '(min-width: 1280px)',
+  xl-up: '(min-width: 1920px)'
+);
+
+// Mixin: just Down
+@mixin media-down($bp) {
+  $value: map.get($breakpoints, $bp);
+  @if $value {
+    @media #{string.unquote($value)} {
+      @content;
+    }
+  } @else {
+    @warn "⚠️ Breakpoint `#{$bp}` не найден в карте $breakpoints.";
+  }
+}
+
+// Mixin: just Up
+@mixin media-up($bp) {
+  $value: map.get($breakpoints, $bp);
+  @if $value {
+    @media #{string.unquote($value)} {
+      @content;
+    }
+  } @else {
+    @warn "⚠️ Breakpoint `#{$bp}` не найден в карте $breakpoints.";
+  }
+}
+
+// Mixin: Range
+@mixin media-between($bp-min, $bp-max) {
+  $min: map.get($breakpoints, $bp-min);
+  $max: map.get($breakpoints, $bp-max);
+
+  @if $min and $max {
+    @media #{string.unquote($min)} and #{string.unquote($max)} {
+      @content;
+    }
+  } @else {
+    @warn "⚠️ Breakpoint `#{$bp-min}` или `#{$bp-max}` не найден в карте $breakpoints.";
+  }
+}
