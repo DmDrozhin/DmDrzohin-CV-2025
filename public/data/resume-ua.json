@@ -5,45 +5,60 @@
   "avatar_light": "avatarLightTheme.jpeg",
   "avatar_dark": "avatarDarkTheme.jpeg",
   "contacts": [
-    { "item": "ddrozhin@gmail.com", "link": "mailto:ddrozhin@gmail.com", "icon": "gmail.svg", "size": 24 },
-    { "item": "github.com/DmDrozhin", "link": "https://github.com/DmDrozhin", "icon": "github.svg", "size": 24 },
-    { "item": "@DmDrozhin", "link": "https://t.me/DmDrozhin", "icon": "telegram.svg", "size": 24 },
-    { "item": "+38 (095) 285-64-34", "link": "tel:+380952856434", "icon": "phone.svg", "size": 22 }
+    {
+      "item": "ddrozhin@gmail.com",
+      "link": "mailto:ddrozhin@gmail.com",
+      "icon": "gmail.svg",
+      "size": 20
+    },
+    {
+      "item": "github.com/DmDrozhin",
+      "link": "https://github.com/DmDrozhin",
+      "icon": "github.svg",
+      "size": 20
+    },
+    {
+      "item": "@DmDrozhin",
+      "link": "https://t.me/DmDrozhin",
+      "icon": "telegram.svg",
+      "size": 20
+    },
+    {
+      "item": "+38 (095) 285-64-34",
+      "link": "tel:+380952856434",
+      "icon": "phone.svg",
+      "size": 22
+    }
   ],
-    "summary": [
-    "Frontend розробник (Vue.js) з понад 3 роками досвіду у розробці масштабованих веб-застосунків на базі Vue 2/3, із глибоким володінням як Composition API, так і Options API. Маю експертизу у створенні багаторазових компонентів з адаптивною та pixel-perfect версткою, а також у гнучкій кастомізації елементів бібліотеки Vuetify відповідно до дизайн-системи проєкту. Значну увагу приділяю якості стилізації: розробив структуровану систему SCSS-змінних, міксинів і хелперів, що забезпечує стандартизований, читабельний та підтримуваний код. У рамках останнього проєкту інтегрував Swiper Element для реалізації інтерактивних UI-рішень, здійснив міграцію компонентів з Options API до Composition API, реалізував бізнес-логіку у Vue-компонентах та забезпечив ефективну взаємодію з бекендом — включно з формуванням, тестуванням та оптимізацією API-ендпоінтів."
+  "summary": [
+    "Frontend розробник (Vue.js) з понад 3 роками досвіду у створенні та підтримці компонентів на Vue 2/3 із використанням як Composition API, так і Options API. Маю експертизу у побудові системи стилізації, що поєднує можливості SCSS (змінні, міксини, хелпери), динамічну стилізацію у Vue (через реактивні дані та прив’язку класів) та кастомізацію бібліотечних компонентів Vuetify відповідно до дизайн-системи. Реалізовував інтеграцію та гнучке налаштування <a href='https://swiperjs.com/element' 'target='_blank' title='Go to Swiper'>Swiper Element</a> для створення інтерактивних UI-рішень. Створюю багаторазові компоненти з адаптивною та pixel-perfect версткою."
   ],
   "experience": [
     {
       "position": "Frontend Розробник (Vue.js)",
       "company": "TalentFly",
-      "company_icon": "",
+      "company_icon": "talentfly.svg",
       "period": "02.2024 - 09.2025",
       "achievements": [
-        "Розробка компонентів Vue.js 2/3 із використанням Composition API та Options API.",
-        "Адаптивна та pixel-perfect верстка за макетами з Figma та інших джерел.",
-        "Створення та підтримка глобальних SCSS файлів (змінні, міксіни, хелпери).",
-        "Налагодження та тестування компонентів, пошук і виправлення помилок.",
-        "Розробка компонентів зі слайдером Swiper Element.",
-        "Міграція компонентів з Options API до Composition API.",
-        "Активне використання та кастомізація компонентів Vuetify відповідно до дизайн-системи.",
-        "Реалізація бізнес-логіки у Vue-компонентах.",
-        "Кросбраузерне тестування з використанням BrowserStack.",
-        "Співпраця з командами фронтенду та бекенду."
+        "Розробка, реалізація бізнес-логіки, стилізація Vue 2/3 компонентів.",
+        "Використання як Composition так і Options API, стилізація на SCSS.",
+        "Адаптивна PerfectPixel верстка за макетами з Figma та інших джерел.",
+        "Впровадження слайдеру Swiper Element в компоненти.",
+        "Використання та кастомізація компонентів Vuetify відповідно до дизайн-системи.",
+        "Кросбраузерне тестування компонентів з використанням BrowserStack, пошук та виправлення помилок."
       ]
     },
     {
       "position": "Веб / E-commerce Розробник",
       "company": "OkDveri",
-      "company_icon": "",
+      "company_icon": "okdveri.svg",
       "period": "02.2019 – 10.2023",
       "achievements": [
-        "Розробив та підтримував інтернет-магазин [okdveri.com.ua](https://www.okdveri.com.ua) на базі WooCommerce + Elementor Pro.",
-        "Створив застосунок на Vue.js для автоматизації завантаження каталогу (варіації, атрибути, SEO-тексти).",
-        "Оптимізував UI/UX сторінок товарів, підвищивши конверсію.",
-        "Реалізував адаптивну pixel-perfect верстку та SEO-оптимізований контент.",
-        "Розробив графіку бренду, рекламні матеріали та ілюстрації товарів.",
-        "Адміністрував хостинг, акаунти Google та запускав SMM-кампанії."
+        "Розробка магазину <a href='https://www.okdveri.com.ua' target='_blank' title='Go to okdveri.com.ua'>okdveri.com.ua</a> на базі WooCommerce + Elementor Pro.",
+        "Розробка застосунка на Vue для автоматизації завантаження каталогу варіативних товарів.",
+        "UI/UX оптимізація сторінок товарів, наповнення SEO-Friendly контентом.",
+        "Дизайн графічних матеріалів бренду, реклами та ілюстрацій товарів.",
+        "Адміністрування хостинг аккаунту, бізнес сторінки Google."
       ]
     },
     {
@@ -52,10 +67,10 @@
       "company_icon": "",
       "period": "2002 – 10.2017",
       "achievements": [
-        "Вів облік рахунків в цінних паперах та банківських інвестиційних рахунків.",
-        "Здійснював розрахунки за операціями з цінними паперами (акції, ADR/GDR, облігації).",
-        "Актуалізував інвестиційну базу даних та готував звіти для HQ.",
-        "Співпрацював із банками, зберігачами ЦП, нотаріусами та державними регуляторами."
+        "Облік рахунків в цінних паперах та банківських інвестиційних рахунків.",
+        "Супровід розрахунків за операціями з цінними паперами (акції, ADR/GDR).",
+        "Актуалізація бази даних інвестицій та надання звітності.",
+        "Співпраця з банками, зберігачами ЦП, нотаріусами, державними регуляторами."
       ]
     },
     {
@@ -64,50 +79,172 @@
       "company_icon": "",
       "period": "1996 – 2002",
       "achievements": [
-        "Обслуговував офісні комп’ютери, мережу та обладнання.",
-        "Надавав IT-підтримку та допомогу з програмним забезпеченням.",
-        "Планував та документував офісну мережу та телефонну систему.",
-        "Супроводжував сервери NetWare і FreeBSD."
+        "Обслуговування офісних комп'ютерів, мереж та обладнання.",
+        "IT-підтримка та надання консультацій співробітникам офісу.",
+        "Планування та налаштування комп'ютерних мереж та телефонних систем.",
+        "Супровід серверів NetWare та FreeBSD."
       ]
     }
   ],
   "education": [
     {
       "institution": "Економічний інститут менеджменту, Київ",
-      "degree": "Спеціаліст з менеджменту"
+      "degree": "(Спеціаліст з менеджменту)"
     }
   ],
   "skills": [
-    "Vue.js (Composition API, Options API)",
-    "Pinia",
-    "Vuex",
-    "Vue Router",
-    "Vuetify",
-    "JavaScript (ES6+)",
-    "TypeScript",
-    "REST API",
-    "Node.js",
-    "HTML",
-    "CSS/SCSS",
-    "Адаптивна верстка",
-    "Pixel Perfect",
-    "Git",
-    "Swiper Element",
-    "Кросбраузерне тестування",
-    "BrowserStack",
-    "UI/UX принципи",
-    "Figma",
-    "Corel Draw"
+    {
+      "id": 104,
+      "type": 1,
+      "skill": "JavaScript",
+      "img": "js.svg",
+      "img_size": 20
+    },
+    {
+      "id": 101,
+      "type": 2,
+      "skill": [
+        { "item": "Vue", "img": "vue.svg", "img_size": 28 },
+        { "item": "Vuex", "img": "divider.svg", "img_size": 4 },
+        { "item": "VueRouter", "img": "divider.svg", "img_size": 4 }
+      ]
+    },
+    {
+      "id": 102,
+      "type": 1,
+      "skill": "Pinia",
+      "img": "pinia.svg",
+      "img_size": 20
+    },
+    {
+      "id": 103,
+      "type": 1,
+      "skill": "Vuetify",
+      "img": "vuetify.svg",
+      "img_size": 24
+    },
+    {
+      "id": 105,
+      "type": 2,
+      "skill": [
+        { "item": "HTML", "img": "html.svg", "img_size": 20 },
+        { "item": "CSS", "img": "css.svg", "img_size": 20 },
+        { "item": "SCSS", "img": "sass.svg", "img_size": 24 }
+      ]
+    },
+    {
+      "id": 106,
+      "type": 1,
+      "skill": "Swiper Element",
+      "img": "swiper.svg",
+      "img_size": 20
+    },
+    {
+      "id": 107,
+      "type": 1,
+      "skill": "Webpack",
+      "img": "webpack.svg",
+      "img_size": 20
+    },
+    {
+      "id": 108,
+      "type": 1,
+      "skill": "Vite",
+      "img": "vite.svg",
+      "img_size": 20
+    },
+    {
+      "id": 109,
+      "type": 1,
+      "skill": "Figma",
+      "img": "figma.svg",
+      "img_size": 20
+    },
+    {
+      "id": 110,
+      "type": 1,
+      "skill": "Node.js",
+      "img": "node.svg",
+      "img_size": 32
+    },
+    {
+      "id": 111,
+      "type": 1,
+      "skill": "BrowserStack",
+      "img": "browserstack.svg",
+      "img_size": 20
+    },
+    {
+      "id": 112,
+      "type": 1,
+      "skill": "TypeScript",
+      "img": "typescript.svg",
+      "img_size": 20
+    },
+    {
+      "id": 113,
+      "type": 1,
+      "skill": "Git",
+      "img": "git.svg",
+      "img_size": 20
+    },
+    {
+      "id": 114,
+      "type": 1,
+      "skill": "CorelDRAW",
+      "img": "coreldraw.svg",
+      "img_size": 16
+    },
+    {
+      "id": 115,
+      "type": 1,
+      "skill": "REST API",
+      "img": "",
+      "img_size": 20
+    },
+    {
+      "id": 116,
+      "type": 1,
+      "skill": "PerfectPixel",
+      "img": "perfectpixel.svg",
+      "img_size": 20
+    },
+    {
+      "id": 117,
+      "type": 1,
+      "skill": "Composition | Options API",
+      "img": "",
+      "img_size": 20
+    },
+    {
+      "id": 118,
+      "type": 1,
+      "skill": "Адаптивна верстка",
+      "img": "",
+      "img_size": 20
+    },
+    {
+      "id": 119,
+      "type": 1,
+      "skill": "Кросбраузерне тестування",
+      "img": "",
+      "img_size": 20
+    },
+    {
+      "id": 120,
+      "type": 1,
+      "skill": "UI/UX принципи",
+      "img": "",
+      "img_size": 20
+    }
   ],
   "certificates": [
-    "JavaScript Essential 2021 (ITDVN)",
-    "JavaScript Patterns (ITDVN)",
-    "HTML/CSS (ITDVN)",
-    "Vue.js (ITDVN)"
+    { "certificate": "JavaScript Essential 2021", "institution": "ITDVN" },
+    { "certificate": "HTML/CSS", "institution": "ITDVN" },
+    { "certificate": "Vue.js", "institution": "ITDVN" }
   ],
-  "languages": {
-    "Англійська": "Робочий рівень",
-    "Українська": "Рідна",
-    "Російська": "Рідна"
-  }
+  "languages": [
+    { "language": "Англійська", "level": "Робочий рівень" },
+    { "language": "Українська | Російська", "level": "Рідна" }
+  ]
 }
