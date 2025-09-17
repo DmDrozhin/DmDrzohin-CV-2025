@@ -38,6 +38,7 @@
       "position": "Frontend Розробник (Vue.js)",
       "company": "TalentFly",
       "company_icon": "talentfly.svg",
+      "company_icon_size": 18,
       "period": "02.2024 - 09.2025",
       "achievements": [
         "Розробка, реалізація бізнес-логіки, стилізація Vue 2/3 компонентів.",
@@ -52,6 +53,7 @@
       "position": "Веб / E-commerce Розробник",
       "company": "OkDveri",
       "company_icon": "okdveri.svg",
+      "company_icon_size": 22,
       "period": "02.2019 – 10.2023",
       "achievements": [
         "Розробка магазину <a href='https://www.okdveri.com.ua' target='_blank' title='Go to okdveri.com.ua'>okdveri.com.ua</a> на базі WooCommerce + Elementor Pro.",

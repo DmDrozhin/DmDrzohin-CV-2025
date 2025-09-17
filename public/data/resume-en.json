@@ -38,6 +38,7 @@
       "position": "Frontend Developer (Vue.js)",
       "company": "TalentFly",
       "company_icon": "talentfly.svg",
+      "company_icon_size": 18,
       "period": "02.2024 - 09.2025",
       "achievements": [
         "Development, business logic implementation, and styling of Vue 2/3 components.",
@@ -52,6 +53,7 @@
       "position": "Web / E-commerce Developer",
       "company": "OkDveri",
       "company_icon": "okdveri.svg",
+      "company_icon_size": 22,
       "period": "02.2019 – 10.2023",
       "achievements": [
         "Developed <a href='https://www.okdveri.com.ua' target='_blank' title='Go to okdveri.com.ua'>okdveri.com.ua</a> store based on WooCommerce + Elementor Pro.",
