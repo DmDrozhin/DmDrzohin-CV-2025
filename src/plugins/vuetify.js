@@ -9,7 +9,7 @@ export default createVuetify({
   components,
   directives,
   theme: customTheme,
-  defaults: defaults, 
+  defaults: defaults,
   icons: {
     defaultSet: 'mdi',
     aliases,
