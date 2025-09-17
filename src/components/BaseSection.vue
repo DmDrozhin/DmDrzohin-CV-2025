@@ -44,9 +44,9 @@ const comp = computed(() => null);
   &__wrapper {
     width: 100%;
     font-size: 0.85rem;
-    outline: 1px solid greenyellow;
   }
-  &__title:first-child {
+  &__title {
+    margin: 4px 0;
   }
 }
 </style>

@@ -1,7 +1,6 @@
 <script setup>
 import PagePreloader from '@/components/PagePreloader.vue';
 import SidebarSection from '@/components/SidebarSection.vue';
-import SectionTitle from '@/components/SectionTitle.vue';
 import BaseSection from '@/components/BaseSection.vue';
 import { computed, onBeforeMount, onBeforeUnmount, onMounted, ref } from 'vue';
 import { useDisplay, useTheme } from 'vuetify';
@@ -13,13 +12,9 @@ const store = useMainStore();
 const display = useDisplay();
 const isLoading = computed(() => store.loading || false);
 const resume = computed(() => store.resume || {});
-const drawer = ref(true); // будет открыт по умолчанию
+const drawer = ref(true); // open by default
 const isSmallAndDown = computed(() => display.smAndDown ?? false);
 const isXSmall = computed(() => display.xs ?? false);
-// watchEffect(() => {
-//   drawer.value = !isSmallAndDown.value;
-// });
-onBeforeMount(() => store.fetchResume());
 // 1) Importing all images from folder
 const avatars = import.meta.glob('@/assets/images/avatars/*', { eager: true });
 // 2) Making object map like { name.jpeg: '/assets/images/name.jpeg' }
@@ -120,6 +115,7 @@ const groupedSections = computed(() => {
     ]
   };
 });
+onBeforeMount(() => store.fetchResume());
 </script>
 <template>
   <div class="my-resume">
@@ -442,6 +438,12 @@ const groupedSections = computed(() => {
     .section {
       &__wrapper.skills {
         flex: 1;
+        .section.skills {
+          .skill.block.main-skill::before {
+            animation: pulse-shadow 1.3s ease-in-out forwards;
+            animation-delay: 1s;
+          }
+        }
       }
     }
   }
@@ -465,6 +467,17 @@ const groupedSections = computed(() => {
         gap: 8px;
       }
     }
+  }
+}
+@keyframes pulse-shadow {
+  0% {
+    box-shadow: 0 0 0 0 $green-md;
+  }
+  50% {
+    box-shadow: 0 0 3px 6px $green-md;
+  }
+  100% {
+    box-shadow: 0 0 0 0 $green-md;
   }
 }
 </style>

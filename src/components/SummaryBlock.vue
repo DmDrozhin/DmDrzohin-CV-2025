@@ -1,32 +1,41 @@
+<!-- eslint-disable vue/no-v-html -->
 <script setup>
-import { computed, ref } from 'vue';
-
-const props = defineProps({
+defineProps({
   options: {
     type: Object,
     default: () => ({}),
     required: false
   }
 });
-
-const something = ref(null);
-const comp = computed(() => null);
 </script>
 
 <template>
   <ul class="summary">
-    <!-- eslint-disable-next-line vue/no-v-html -->
-    <li v-for="entry, idx in options.value" :key="idx" class="summary__entry" v-html="entry"></li>
+    <li
+      v-for="(entry, idx) in options.value"
+      :key="idx"
+      class="summary__entry"
+      v-html="entry"
+    />
   </ul>
 </template>
 
 <style lang="scss" scoped>
-.block {
-  outline: 1px solid greenyellow;
-  width: 50px;
-  height: 50px;
+.summary {
+  width: 100%;
+  list-style: none;
+  &__entry {
+    position: relative;
+  }
+  &__entry::before {
+    content: '✪';
+    color: $green-md;
+    font-size: 1rem;
+    position: absolute;
+    top:  -0.12rem;
+    left: -1rem;
+  }
 }
 </style>
 
-<style lang="scss">
-</style>
+<style lang="scss"></style>

@@ -1,5 +1,4 @@
 <script setup>
-
 defineProps({
   options: {
     type: Object,
@@ -20,7 +19,6 @@ defineProps({
 
 <style lang="scss" scoped>
 .education {
-  outline: 1px solid greenyellow;
   width: 100%;
   padding: 0 20px;
   &__institution {
