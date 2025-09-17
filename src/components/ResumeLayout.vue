@@ -1,6 +1,9 @@
 <script setup>
 import PagePreloader from '@/components/PagePreloader.vue';
-import { computed, onBeforeMount, ref, watch, watchEffect } from 'vue';
+import SidebarSection from '@/components/SidebarSection.vue';
+import SectionTitle from '@/components/SectionTitle.vue';
+import BaseSection from '@/components/BaseSection.vue';
+import { computed, onBeforeMount, onBeforeUnmount, onMounted, ref } from 'vue';
 import { useDisplay, useTheme } from 'vuetify';
 import { useMainStore } from '@/stores/main.store.js';
 import { createAssetMap } from '@/utils/assets';
@@ -11,18 +14,17 @@ const display = useDisplay();
 const isLoading = computed(() => store.loading || false);
 const resume = computed(() => store.resume || {});
 const drawer = ref(true); // будет открыт по умолчанию
-const isSmallAndDown = computed(() => display.smAndDown || false);
-const isXSmall = computed(() => display.xs || false);
+const isSmallAndDown = computed(() => display.smAndDown ?? false);
+const isXSmall = computed(() => display.xs ?? false);
 // watchEffect(() => {
 //   drawer.value = !isSmallAndDown.value;
 // });
 onBeforeMount(() => store.fetchResume());
-
-// import all images from folder
+// 1) Importing all images from folder
 const avatars = import.meta.glob('@/assets/images/avatars/*', { eager: true });
-// making object like { DmDrzohin.jpeg: '/assets/DmDrzohin.123abc.jpeg' }
+// 2) Making object map like { name.jpeg: '/assets/images/name.jpeg' }
 const avatarMap = createAssetMap(avatars);
-// dynamic image choice
+// 3) Dynamic choice of the image
 const avatarUrl = computed(() => {
   // define photo depending on current theme
   const currentAvatar =
@@ -58,12 +60,72 @@ const changeTheme = (themeName) => {
     theme.change(themeName);
   }
 };
+// Observing height of header and calculating height of sidebar
+const resumeHeader = ref(null);
+const headerHeight = ref(null);
+const headerHeightMob = ref(null);
+const observer = new ResizeObserver((el) => {
+  if (el) {
+    const top = el[0].contentRect.top;
+    const height = el[0].contentRect.height;
+    headerHeight.value = height;
+    headerHeightMob.value = top + height;
+  }
+});
+onMounted(() => observer.observe(resumeHeader.value));
+// Stop observing the header
+onBeforeUnmount(() => observer.unobserve(resumeHeader.value));
+const lang = computed(() => store.language || 'ua');
+const translations = {
+  ua: {
+    summary: 'про себе',
+    experience: 'досвід роботи',
+    education: 'освіта',
+    skills: 'навички',
+    certificates: 'сертифікати',
+    languages: 'мови'
+  },
+  en: {
+    summary: 'summary',
+    experience: 'experience',
+    education: 'education',
+    skills: 'skills',
+    certificates: 'certificates',
+    languages: 'languages'
+  }
+};
+const groupedSections = computed(() => {
+  if (!resume.value) {
+    return { main: [], extra: [] };
+  }
+  const t = translations[lang.value];
+  return {
+    main: [
+      { key: t.summary, value: resume.value.summary || [], id: 'summary' },
+      {
+        key: t.experience,
+        value: resume.value.experience || [],
+        id: 'experience'
+      },
+      { key: t.education, value: resume.value.education || [], id: 'education' }
+    ],
+    extra: [
+      { key: t.skills, value: resume.value.skills || [], id: 'skills' },
+      {
+        key: t.certificates,
+        value: resume.value.certificates || [],
+        id: 'certificates'
+      },
+      { key: t.languages, value: resume.value.languages || [], id: 'languages' }
+    ]
+  };
+});
 </script>
 <template>
   <div class="my-resume">
     <PagePreloader v-if="isLoading" />
     <v-app-bar class="my-resume__header" absolute height="auto">
-      <div class="user__wrapper">
+      <div ref="resumeHeader" class="user__wrapper">
         <div class="user__titles">
           <div class="user__name">{{ resume.name }}</div>
           <div class="user__title">{{ resume.title }}</div>
@@ -133,7 +195,7 @@ const changeTheme = (themeName) => {
         <div class="user__gradient"></div>
       </div>
     </v-app-bar>
-    <!-- Right sidebar -->
+    <!-- SIDEBAR -->
     <v-navigation-drawer
       v-model="drawer"
       class="my-resume__sidebar"
@@ -142,21 +204,22 @@ const changeTheme = (themeName) => {
       :mobile="isSmallAndDown.value"
       color="grey-lighten-4"
       absolute
+      width="224"
     >
-      <v-list>
-        <v-list-item title="Профиль" />
-        <v-list-item title="Настройки" />
-        <v-list-item title="Выход" />
-      </v-list>
+      <SidebarSection
+        v-for="(section, idx) in groupedSections.extra"
+        :key="idx"
+        :options="{ ...section, darken: true }"
+      />
     </v-navigation-drawer>
-    <!-- Main content -->
-    <v-main>
-      <v-container>
-        <h1>Контент страницы</h1>
-        <p>
-          👉 На десктопе панель всегда справа и видна без бургера.<br />
-          👉 На мобильных — панель скрыта и появляется с overlay по кнопке.
-        </p>
+    <!-- MAIN -->
+    <v-main class="my-resume__main">
+      <v-container class="my-resume__container">
+        <BaseSection
+          v-for="(section, idx) in groupedSections.main"
+          :key="idx"
+          :options="{ ...section, darken: false }"
+        />
       </v-container>
     </v-main>
   </div>
@@ -167,6 +230,7 @@ const changeTheme = (themeName) => {
   width: 100%;
   max-width: 794px;
   min-width: 320px;
+  height: fit-content;
   min-height: 1123px;
   position: relative;
   margin: 0 auto;
@@ -175,6 +239,24 @@ const changeTheme = (themeName) => {
   box-shadow: 0 0 16px rgba(0, 0, 0, 0.15);
   &__header {
     overflow: visible !important;
+  }
+  &__sidebar {
+    top: v-bind('headerHeight + 12 + "px"');
+    height: auto;
+    border-radius: 24px 0 0 0;
+    @include media-down(xs) {
+      height: fit-content;
+      top: v-bind('headerHeightMob + 12 + "px"');
+    }
+  }
+  &__main {
+    padding-top: v-bind('headerHeight + "px"');
+    @include media-down(xs) {
+      padding-top: v-bind('headerHeightMob + "px"');
+    }
+  }
+  &__container {
+    padding: 8px 16px 16px;
   }
 }
 .user {
@@ -278,6 +360,7 @@ const changeTheme = (themeName) => {
     margin: 0 8px;
     right: 16px !important;
     transition: all 0.3s ease-in;
+    z-index: 2;
     @media screen and (max-width: 380px) {
       top: unset !important;
       bottom: -16px;
@@ -318,6 +401,7 @@ const changeTheme = (themeName) => {
     }
   }
   &__gradient {
+    position: relative;
     grid-area: gradient;
     width: 100%;
     height: 50px;
@@ -328,6 +412,23 @@ const changeTheme = (themeName) => {
       rgb(var(--v-theme-background-gradient-end)) 100%
     );
   }
+  &__gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 28%;
+    width: 100px;
+    height: 50px;
+    background: radial-gradient(
+      circle at 50% 0,
+      rgba((var(--v-theme-background-header)), 0.5) calc(25px - 1px),
+      transparent 25px
+    );
+    pointer-events: none;
+    @include media-down(sm-down) {
+      display: none;
+    }
+  }
 }
 </style>
 <style lang="scss">
@@ -335,6 +436,21 @@ const changeTheme = (themeName) => {
   .v-toolbar {
     &__content {
       overflow: visible;
+    }
+  }
+  &__sidebar {
+    .section {
+      &__wrapper.skills {
+        flex: 1;
+      }
+    }
+  }
+  .v-navigation-drawer {
+    &__content {
+      display: flex;
+      flex-direction: column;
+      border-radius: inherit;
+      padding: 12px;
     }
   }
 }

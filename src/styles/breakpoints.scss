@@ -28,7 +28,7 @@ $breakpoints: (
       @content;
     }
   } @else {
-    @warn "⚠️ Breakpoint `#{$bp}` не найден в карте $breakpoints.";
+    @warn "⚠️ Breakpoint `#{$bp}` not found in map $breakpoints.";
   }
 }
 
@@ -40,7 +40,7 @@ $breakpoints: (
       @content;
     }
   } @else {
-    @warn "⚠️ Breakpoint `#{$bp}` не найден в карте $breakpoints.";
+    @warn "⚠️ Breakpoint `#{$bp}` not found in map $breakpoints.";
   }
 }
 
@@ -54,6 +54,6 @@ $breakpoints: (
       @content;
     }
   } @else {
-    @warn "⚠️ Breakpoint `#{$bp-min}` или `#{$bp-max}` не найден в карте $breakpoints.";
+    @warn "⚠️ Breakpoint `#{$bp-min}` or `#{$bp-max}` not found in map $breakpoints.";
   }
 }

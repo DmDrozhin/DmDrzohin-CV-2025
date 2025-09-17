@@ -1,27 +1,39 @@
+/* Global */
 :root {
   padding: 0;
   margin: 0;
-  @page {
-    size: A4 landscape;
-  }
   font-family: 'Segoe UI', sans-serif;
-  --v-font-family: 'Segoe UI', sans-serif;
-  --v-hover-opacity: 0.04;
-  --v-pressed-opacity: 0.08;
-  --v-activated-opacity: 0.12;
 }
+
+/* Print settings */
+@page {
+  size: A4 landscape;
+}
+
+/* Base behavior for all elements */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+ul {
+  padding-inline-start: 24px;
+  margin-block-start: 0.2rem;
+  margin-block-end: 0.2rem;
+}
+
 html {
   -webkit-font-smoothing: antialiased;
   height: 100%;
   width: 100%;
-  box-sizing: border-box;
   scrollbar-gutter: stable both-edges;
   font-size: 16px;
 }
+
 body {
   height: inherit;
   width: inherit;
-  // mobile viewport bug fix */
+  /* mobile viewport bug fix */
   height: -webkit-fill-available;
   scroll-behavior: smooth;
   overflow-x: hidden;
