@@ -6,3 +6,9 @@ export function createAssetMap(globResult) {
     })
   );
 }
+export function getAssetPath(file) {
+  if (!file) {
+    return '';
+  }
+  return new URL(`../assets/images/ui/${file}`, import.meta.url).href;
+}
