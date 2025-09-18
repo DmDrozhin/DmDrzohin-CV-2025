@@ -18,7 +18,7 @@ export const useMainStore = defineStore('main', () => {
 
     try {
       await new Promise((resolve) => setTimeout(resolve, 1500));
-      const response = await fetch(`/data/resume-${lang}.json`);
+      const response = await fetch(`${import.meta.env.BASE_URL}data/resume-${lang}.json`);
       if (!response.ok) {
         throw new Error('Failed to load resume');
       }
