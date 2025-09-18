@@ -6,9 +6,15 @@ export function createAssetMap(globResult) {
     })
   );
 }
-export function getAssetPath(file) {
+export function getIconPath(file) {
   if (!file) {
     return '';
   }
   return new URL(`../assets/images/ui/${file}`, import.meta.url).href;
-}
+};
+export function getBackgroundPath(file) {
+  if (!file) {
+    return '';
+  }
+  return new URL(`../assets/images/background/${file}`, import.meta.url).href;
+};

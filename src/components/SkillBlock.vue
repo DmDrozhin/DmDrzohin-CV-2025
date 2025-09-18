@@ -36,8 +36,6 @@ const source = computed(() => {
 </script>
 
 <template>
-  <!-- Внешний контейнер: сюда Vue автоматически навесит class="section__skill-block" -->
-  <!-- <div v-bind="$attrs"> -->
   <!-- Multiple chips block -->
   <div
     v-if="options.type === 2 && source.length"
@@ -63,7 +61,6 @@ const source = computed(() => {
       {{ skill.item }}
     </div>
   </div>
-
   <!-- Single chip block -->
   <div
     v-else-if="options.type === 1"
@@ -96,6 +93,8 @@ const source = computed(() => {
   font-size: 0.85rem;
   background-color: rgb(var(--v-theme-background));
   position: relative;
+  overflow: visible;
+  z-index: auto;
   &__icon {
     &.shifted {
       position: relative;

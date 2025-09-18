@@ -59,8 +59,7 @@ const skills = computed(() => props.options.value || []);
   justify-content: center;
   align-items: center;
   padding: 8px 0;
-  &__title {
-  }
+  // &__title {}
   &.skills {
     align-content: flex-start;
     gap: 8px;
@@ -79,7 +78,7 @@ const skills = computed(() => props.options.value || []);
   &.skills {
     .skill.main-skill {
       position: relative;
-      left: -10px;
+      left: -6px;
       padding: 0 8px 0 0;
     }
   }

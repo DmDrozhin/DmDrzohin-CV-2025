@@ -1,5 +1,5 @@
 <script setup>
-import { getAssetPath } from '@/utils/assets';
+import { getIconPath } from '@/utils/assets';
 
 defineProps({
   options: {
@@ -16,7 +16,7 @@ defineProps({
     :class="options.customClass || ''"
   >
     <div class="language__name">{{ options.language }}</div>
-    <img :src="getAssetPath('divider.svg')" width="4" />
+    <img :src="getIconPath('divider.svg')" width="4" />
     <div v-if="options.level" class="language__level">
       {{ options.level }}
     </div>
