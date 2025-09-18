@@ -299,6 +299,7 @@ const handleChange = (ev) => console.log(ev);
     grid-area: titles;
     position: relative;
     padding: 24px 32px;
+    text-align: center;
     @include Prevent-select;
     &.light-text {
       color: $light;
