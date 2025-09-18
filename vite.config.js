@@ -4,7 +4,8 @@ import vuetify from 'vite-plugin-vuetify';
 import { fileURLToPath, URL } from 'node:url';
 
 // https://vitejs.dev/config/
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
+  base: mode === 'production' ? '/DmDrzohin-CV-2025/' : '/',
   plugins: [vue(), vuetify({ autoImport: true })],
   resolve: {
     alias: {
@@ -20,4 +21,4 @@ export default defineConfig({
       }
     }
   }
-});
+}));
