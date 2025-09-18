@@ -5,8 +5,9 @@ import BaseSection from '@/components/BaseSection.vue';
 import { computed, onBeforeMount, onBeforeUnmount, onMounted, ref } from 'vue';
 import { useDisplay, useTheme } from 'vuetify';
 import { useMainStore } from '@/stores/main.store.js';
-import { createAssetMap } from '@/utils/assets';
+import { createAssetMap, getBackgroundPath } from '@/utils/assets';
 import SwitchersBlock from '@/components/SwitchersBlock.vue';
+import SliderSwiper from '@/components/SliderSwiper.vue';
 const theme = useTheme();
 const store = useMainStore();
 const display = useDisplay();
@@ -115,32 +116,47 @@ const groupedSections = computed(() => {
     ]
   };
 });
+const isCurrentSlideDark = ref(false);
 onBeforeMount(() => store.fetchResume());
+const handleChange = (ev) => console.log(ev);
 </script>
 <template>
   <div class="my-resume">
     <PagePreloader v-if="isLoading" />
+
     <v-app-bar class="my-resume__header" absolute height="auto">
       <div ref="resumeHeader" class="user__wrapper">
-        <div class="user__titles">
-          <div class="user__name">{{ resume.name }}</div>
-          <div class="user__title">{{ resume.title }}</div>
-          <div class="user__location">{{ resume.location }}</div>
-          <SwitchersBlock
-            class="user__switcher"
-            @change-lang="changeLanguage"
-            @change-theme="changeTheme"
-          />
+        <div class="user__adaptive-row">
+          <div
+            class="user__titles"
+            :class="{ 'light-text': isCurrentSlideDark }"
+          >
+            <SwitchersBlock
+              class="user__switcher"
+              :class="{ 'light-text': isCurrentSlideDark }"
+              @change-lang="changeLanguage"
+              @change-theme="changeTheme"
+            />
+            <SliderSwiper
+              class="user__swiper"
+              @dark="isCurrentSlideDark = $event"
+            />
+            <div class="user__name">{{ resume.name }}</div>
+            <div class="user__title">{{ resume.title }}</div>
+            <div class="user__location">{{ resume.location }}</div>
+          </div>
+          <div class="user__photo-wrapper">
+            <v-img
+              v-if="avatarUrl"
+              class="user__photo"
+              :src="avatarUrl"
+              height="150"
+              width="150"
+              alt="avatar"
+            />
+            <v-icon v-else size="150" color="#969595" icon="mdi-account-tie" />
+          </div>
         </div>
-        <v-img
-          v-if="avatarUrl"
-          class="user__photo"
-          :src="avatarUrl"
-          height="150"
-          width="150"
-          alt="avatar"
-        />
-        <v-icon v-else size="150" color="#969595" icon="mdi-account-tie" />
         <div v-if="metaData.length" class="user__meta-data">
           <v-btn
             v-for="contact in metaData"
@@ -258,57 +274,64 @@ onBeforeMount(() => store.fetchResume());
 .user {
   &__wrapper {
     width: 100%;
+    @include media-down(xs) {
+    }
+    @include media-down(xxs) {
+    }
+  }
+  &__adaptive-row {
+    position: relative;
     display: grid;
     grid-template-columns: 1fr auto;
-    grid-template-rows: auto auto;
-    grid-template-areas:
-      'titles photo'
-      'meta-data meta-data'
-      'gradient gradient';
-    background-color: rgba(var(--v-theme-background-header));
+    grid-template-areas: 'titles photo';
     transition: all 0.3s ease-in;
-    @include media-down(xs) {
-      padding-top: 12px;
+    background-color: rgba(var(--v-theme-background-header));
+    @include media-down(xxs) {
       grid-template-columns: 1fr;
       grid-template-areas:
         'photo'
-        'titles'
-        'meta-data'
-        'gradient';
-    }
-    @include media-down(xxs) {
-      padding-top: 40px;
+        'titles';
+      justify-items: center;
+      padding: 40px 12px 0;
     }
   }
   &__titles {
-    position: relative;
     grid-area: titles;
+    position: relative;
     padding: 24px 32px;
-    @include media-down(xs) {
+    @include Prevent-select;
+    &.light-text {
+      color: $light;
+    }
+    @include media-down(xxs) {
       position: static;
-      text-align: center;
-    }
-
-    @include media-up(md-up) {
-      // background: rgb(205, 234, 238);
-    }
-
-    @include media-between(sm-up, lg-down) {
-      // border: 1px dashed rgb(11, 11, 247);
     }
   }
+  &__swiper {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    height: --webkit-fill-available;
+    z-index: 0;
+  }
   &__name {
+    width: fit-content;
     font-size: 2rem;
     letter-spacing: 2.7px;
     margin-bottom: 8px;
+    position: relative;
   }
   &__title {
+    width: fit-content;
     font-size: 1.4rem;
+    position: relative;
   }
   &__location {
+    width: fit-content;
+    position: relative;
   }
-  &__contacts {
-  }
+  // &__contacts {}
   &__photo {
     grid-area: photo;
     border-radius: 16px 0 0 0 !important;
@@ -321,10 +344,13 @@ onBeforeMount(() => store.fetchResume());
     position: absolute;
     top: 4px;
     right: 8px;
+    z-index: 10;
+    &.light-text * {
+      color: $light;
+    }
   }
   &__meta-data {
     position: relative;
-    grid-area: meta-data;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -439,9 +465,9 @@ onBeforeMount(() => store.fetchResume());
       &__wrapper.skills {
         flex: 1;
         .section.skills {
-          .skill.block.main-skill::before {
+          .main-skill::before {
             animation: pulse-shadow 1.3s ease-in-out forwards;
-            animation-delay: 1s;
+            animation-delay: 1.5s;
           }
         }
       }
