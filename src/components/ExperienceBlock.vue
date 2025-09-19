@@ -1,5 +1,5 @@
 <script setup>
-import { computed, ref } from 'vue';
+import { computed } from 'vue';
 import { createAssetMap } from '@/utils/assets';
 
 const props = defineProps({
@@ -39,7 +39,6 @@ const metaData = computed(() => {
         <div class="experience__period">{{ entry.period }}</div>
       </div>
       <ul>
-        <!-- eslint-disable-next-line vue/no-v-html -->
         <li
           v-for="(it, it_idx) in entry.achievements"
           :key="it_idx"
@@ -74,7 +73,7 @@ const metaData = computed(() => {
     color:  rgb(var(--v-theme-background-divider));
   }
   &__period {
-    color: $green-end;
+    color:  rgb(var(--v-theme-accented-text));
   }
 }
 </style>

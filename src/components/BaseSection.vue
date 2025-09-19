@@ -48,4 +48,13 @@ defineProps({
 }
 </style>
 
-<style lang="scss"></style>
+<style lang="scss">
+.section {
+  &__wrapper {
+    a {
+      color: rgb(var(--v-theme-accented-text));
+      text-decoration: none;
+    }
+  }
+}
+</style>

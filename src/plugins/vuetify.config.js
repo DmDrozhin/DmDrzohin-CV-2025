@@ -21,7 +21,8 @@ export const customTheme = {
         'background-gradient-middle': '#9CCC65',
         'background-gradient-end': '#74A400',
         'background-skills-button': '#97cf57',
-        'skill-chip-outline': '#E0E0E0'
+        'skill-chip-outline': '#E0E0E0',
+        'accented-text': '#74A400'
       },
       variables: {
         'hover-opacity': 0.05,
@@ -51,7 +52,8 @@ export const customTheme = {
         'background-gradient-end': '#33691E',
         'background-skills-button': '#97cf57',
         'skill-chip-outline': '#969595',
-        'background-institution': '#121212'
+        'background-institution': '#121212',
+        'accented-text': '#97cf57'
       },
       variables: {
         'hover-opacity': 0.15,
