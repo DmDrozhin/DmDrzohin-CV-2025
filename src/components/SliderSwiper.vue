@@ -1,10 +1,9 @@
 <script>
-import { computed, ref, watch } from 'vue';
+import { computed } from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import { createAssetMap } from '@/utils/assets';
 
 export default {
   name: 'SliderSwiper',
@@ -12,38 +11,27 @@ export default {
     Swiper,
     SwiperSlide
   },
-  emits: ['dark'],
+  props: {
+    options: {
+      type: Object,
+      required: false,
+      default: () => ({})
+    }
+  },
+  emits: ['change-slide'],
   setup(props, { emit }) {
-    const backgrounds = import.meta.glob('@/assets/images/background/*', {
-      eager: true
-    });
-    const backgroundsMap = Object.values(createAssetMap(backgrounds));
-    const currentSlideIdx = ref(0);
-    const darkSlides = ref([1]);
-    const isSlideDark = computed(
-      () => darkSlides.value.indexOf(currentSlideIdx.value) !== -1
-    );
     const navButtonColor = computed(() =>
-      isSlideDark.value ? '#FFF' : '#000'
+      props.options?.isDark ? '#FFF' : '#000'
     );
-    const onSlideChange = (ev) => {
-      if (ev && ev !== undefined) {
-        currentSlideIdx.value = ev.activeIndex;
+    const handleSlideChange = (ev) => {
+      if (ev !== undefined && ev.activeIndex !== undefined) {
+        emit('change-slide', ev.activeIndex);
       }
     };
-    watch(
-      () => isSlideDark.value,
-      (val) => {
-        if (val !== undefined && typeof val === 'boolean') {
-          emit('dark', val);
-        }
-      }
-    );
     return {
-      onSlideChange,
       modules: [Navigation],
-      backgroundsMap,
-      navButtonColor
+      navButtonColor,
+      handleSlideChange
     };
   }
 };
@@ -51,26 +39,25 @@ export default {
 
 <template>
   <swiper
-    v-if="backgroundsMap.length"
-    class="slider"
+    class="bg-slider"
     :modules="modules"
-    navigation
     :slides-per-view="1"
     :grab-cursor="true"
-    @slide-change="onSlideChange"
+    navigation
+    @slide-change="handleSlideChange"
   >
     <swiper-slide
-      v-for="(img, idx) in backgroundsMap"
+      v-for="(img, idx) in options.arr"
       :key="idx"
-      class="slider__slide"
+      class="bg-slider__slide"
     >
-      <v-img class="slider__image" :src="img" cover location />
+      <v-img v-if="img" class="bg-slider__image" :src="img" cover location />
     </swiper-slide>
   </swiper>
 </template>
 
 <style lang="scss" scoped>
-.slider {
+.bg-slider {
   width: 100%;
   &__slide {
     display: flex;
@@ -80,8 +67,9 @@ export default {
   }
 }
 </style>
+
 <style lang="scss">
-.slider {
+.bg-slider {
   .swiper-button-prev {
     left: -6px;
   }

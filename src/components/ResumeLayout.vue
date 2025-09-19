@@ -5,7 +5,7 @@ import BaseSection from '@/components/BaseSection.vue';
 import { computed, onBeforeMount, onBeforeUnmount, onMounted, ref } from 'vue';
 import { useDisplay, useTheme } from 'vuetify';
 import { useMainStore } from '@/stores/main.store.js';
-import { createAssetMap, getBackgroundPath } from '@/utils/assets';
+import { createAssetMap } from '@/utils/assets';
 import SwitchersBlock from '@/components/SwitchersBlock.vue';
 import SliderSwiper from '@/components/SliderSwiper.vue';
 const theme = useTheme();
@@ -16,6 +16,7 @@ const resume = computed(() => store.resume || {});
 const drawer = ref(true); // open by default
 const isSmallAndDown = computed(() => display.smAndDown ?? false);
 const isXSmall = computed(() => display.xs ?? false);
+
 // 1) Importing all images from folder
 const avatars = import.meta.glob('@/assets/images/avatars/*', { eager: true });
 // 2) Making object map like { name.jpeg: '/assets/images/name.jpeg' }
@@ -31,6 +32,7 @@ const avatarUrl = computed(() => {
   }
   return avatarMap[store.resume[currentAvatar]] || '';
 });
+
 // The same for icons
 const icons = import.meta.glob('@/assets/images/ui/*', { eager: true });
 const iconsMap = createAssetMap(icons);
@@ -60,17 +62,20 @@ const changeTheme = (themeName) => {
 const resumeHeader = ref(null);
 const headerHeight = ref(null);
 const headerHeightMob = ref(null);
-const observer = new ResizeObserver((el) => {
-  if (el) {
-    const top = el[0].contentRect.top;
-    const height = el[0].contentRect.height;
+const observer = new ResizeObserver((entries) => {
+  if (entries.length) {
+    const { top, height } = entries[0].contentRect;
     headerHeight.value = height;
     headerHeightMob.value = top + height;
   }
 });
 onMounted(() => observer.observe(resumeHeader.value));
 // Stop observing the header
-onBeforeUnmount(() => observer.unobserve(resumeHeader.value));
+onBeforeUnmount(() => {
+  if (resumeHeader.value) {
+    observer.unobserve(resumeHeader.value);
+  }
+});
 const lang = computed(() => store.language || 'ua');
 const translations = {
   ua: {
@@ -116,9 +121,20 @@ const groupedSections = computed(() => {
     ]
   };
 });
-const isCurrentSlideDark = ref(false);
+const activeSlide = ref(0);
+const darkSlidesMap = ref([1]);
+const isSlideDark = computed(
+  () => darkSlidesMap.value.indexOf(activeSlide.value) !== -1
+);
+// Importing all images from folder
+const headerBackground = import.meta.glob('@/assets/images/background/*', {
+  eager: true
+});
+// 2) Making object map like { name.jpeg: '/assets/images/name.jpeg' }
+const urlMap = Object.values(createAssetMap(headerBackground));
+// Initiating get data request
 onBeforeMount(() => store.fetchResume());
-const handleChange = (ev) => console.log(ev);
+// const appBar = ref(null);
 </script>
 <template>
   <div class="my-resume">
@@ -127,19 +143,18 @@ const handleChange = (ev) => console.log(ev);
     <v-app-bar class="my-resume__header" absolute height="auto">
       <div ref="resumeHeader" class="user__wrapper">
         <div class="user__adaptive-row">
-          <div
-            class="user__titles"
-            :class="{ 'light-text': isCurrentSlideDark }"
-          >
+          <div class="user__titles" :class="{ 'light-text': isSlideDark }">
+            <template v-if="urlMap.length">
+              <SliderSwiper
+                class="user__swiper"
+                :options="{ arr: urlMap, isDark: isSlideDark }"
+                @change-slide="($event) => (activeSlide = $event)"
+              />
+            </template>
             <SwitchersBlock
               class="user__switcher"
-              :class="{ 'light-text': isCurrentSlideDark }"
               @change-lang="changeLanguage"
               @change-theme="changeTheme"
-            />
-            <SliderSwiper
-              class="user__swiper"
-              @dark="isCurrentSlideDark = $event"
             />
             <div class="user__name">{{ resume.name }}</div>
             <div class="user__title">{{ resume.title }}</div>
@@ -227,6 +242,15 @@ const handleChange = (ev) => console.log(ev);
     <!-- MAIN -->
     <v-main class="my-resume__main">
       <v-container class="my-resume__container">
+        <div
+          v-if="!drawer"
+          v-ripple
+          role="button"
+          class="my-resume__bookmark"
+          @click="drawer = !drawer"
+        >
+          skills
+        </div>
         <BaseSection
           v-for="(section, idx) in groupedSections.main"
           :key="idx"
@@ -270,6 +294,25 @@ const handleChange = (ev) => console.log(ev);
   &__container {
     padding: 8px 16px 16px;
   }
+  &__bookmark {
+    position: absolute;
+    bottom: 60px;
+    right: -40px;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 500;
+    line-height: 1;
+    transform: rotate(-90deg);
+    outline: 1px solid $green-start;
+    letter-spacing: 0.5rem;
+    padding: 2px 8px;
+    border-radius: 8px 8px 0 0;
+    cursor: pointer;
+    transition: background 0.3s ease-in;
+    &:hover {
+      background-color: rgba($black, 0.1);
+    }
+  }
 }
 .user {
   &__wrapper {
@@ -301,7 +344,7 @@ const handleChange = (ev) => console.log(ev);
     padding: 24px 32px;
     text-align: center;
     @include Prevent-select;
-    &.light-text {
+    &.light-text * {
       color: $light;
     }
     @include media-down(xxs) {
@@ -313,7 +356,7 @@ const handleChange = (ev) => console.log(ev);
     top: 0;
     bottom: 0;
     left: 0;
-    height: --webkit-fill-available;
+    height: -webkit-fill-available;
     z-index: 0;
   }
   &__name {
@@ -444,7 +487,7 @@ const handleChange = (ev) => console.log(ev);
     height: 50px;
     background: radial-gradient(
       circle at 50% 0,
-      rgba((var(--v-theme-background-header)), 0.5) calc(25px - 1px),
+      rgba(var(--v-theme-background-header), 0.5) calc(25px - 1px),
       transparent 25px
     );
     pointer-events: none;
@@ -454,6 +497,7 @@ const handleChange = (ev) => console.log(ev);
   }
 }
 </style>
+
 <style lang="scss">
 .my-resume {
   .v-toolbar {
@@ -505,6 +549,16 @@ const handleChange = (ev) => console.log(ev);
   }
   100% {
     box-shadow: 0 0 0 0 $green-md;
+  }
+}
+.v-overlay-container {
+  .v-overlay {
+    &__content {
+      max-height: fit-content !important;
+      padding: 2px 8px !important;
+      outline: 1px solid $green-md;
+      font-size: 0.8rem !important;
+    }
   }
 }
 </style>
