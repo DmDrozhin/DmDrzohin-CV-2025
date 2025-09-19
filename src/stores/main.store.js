@@ -17,6 +17,7 @@ export const useMainStore = defineStore('main', () => {
     error.value = null;
 
     try {
+      // Imitation of 1500ms delay server response
       await new Promise((resolve) => setTimeout(resolve, 1500));
       const response = await fetch(`${import.meta.env.BASE_URL}data/resume-${lang}.json`);
       if (!response.ok) {

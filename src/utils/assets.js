@@ -11,10 +11,4 @@ export function getIconPath(file) {
     return '';
   }
   return new URL(`../assets/images/ui/${file}`, import.meta.url).href;
-};
-export function getBackgroundPath(file) {
-  if (!file) {
-    return '';
-  }
-  return new URL(`../assets/images/background/${file}`, import.meta.url).href;
-};
+}

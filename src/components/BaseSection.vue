@@ -1,20 +1,16 @@
 <script setup>
-import { computed, ref } from 'vue';
 import SectionTitle from '@/components/SectionTitle.vue';
 import SummaryBlock from '@/components/SummaryBlock.vue';
 import ExperienceBlock from '@/components/ExperienceBlock.vue';
 import EducationBlock from '@/components/EducationBlock.vue';
 
-const props = defineProps({
+defineProps({
   options: {
     type: Object,
     default: () => ({}),
     required: false
   }
 });
-
-const something = ref(null);
-const comp = computed(() => null);
 </script>
 
 <template>
@@ -42,6 +38,7 @@ const comp = computed(() => null);
 <style lang="scss" scoped>
 .section {
   &__wrapper {
+    position: relative;
     width: 100%;
     font-size: 0.85rem;
   }
