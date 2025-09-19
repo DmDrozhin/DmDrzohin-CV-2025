@@ -142,8 +142,8 @@ onBeforeMount(() => store.fetchResume());
 
     <v-app-bar class="my-resume__header" absolute height="auto">
       <div ref="resumeHeader" class="user__wrapper">
-        <div class="user__adaptive-row">
-          <div class="user__titles" :class="{ 'light-text': isSlideDark }">
+        <div class="user__adaptive-row" :class="{ 'light-text': isSlideDark }">
+          <div class="user__titles">
             <template v-if="urlMap.length">
               <SliderSwiper
                 class="user__swiper"
@@ -262,6 +262,7 @@ onBeforeMount(() => store.fetchResume());
 </template>
 <style lang="scss" scoped>
 @use 'vuetify/settings' as *;
+@use 'sass:color';
 .my-resume {
   width: 100%;
   max-width: 794px;
@@ -328,7 +329,13 @@ onBeforeMount(() => store.fetchResume());
     grid-template-columns: 1fr auto;
     grid-template-areas: 'titles photo';
     transition: all 0.3s ease-in;
-    background-color: rgba(var(--v-theme-background-header));
+    background-color: rgb(var(--v-theme-background-header));
+    &.light-text {
+      background-color: rgb(var(--v-theme-background-meta));
+    }
+    &.light-text * {
+      color: $light;
+    }
     @include media-down(xxs) {
       grid-template-columns: 1fr;
       grid-template-areas:
@@ -344,9 +351,6 @@ onBeforeMount(() => store.fetchResume());
     padding: 24px 32px;
     text-align: center;
     @include Prevent-select;
-    &.light-text * {
-      color: $light;
-    }
     @include media-down(xxs) {
       position: static;
     }
@@ -398,7 +402,7 @@ onBeforeMount(() => store.fetchResume());
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    background-color: rgba(var(--v-theme-background-meta));
+    background-color: rgb(var(--v-theme-background-meta));
     @include media-down(sm-down) {
       padding-right: 80px;
     }
