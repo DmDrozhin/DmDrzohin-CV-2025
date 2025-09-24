@@ -1,44 +1,16 @@
 <script setup>
-import { computed } from 'vue';
-
-const props = defineProps({
+defineProps({
   options: {
     type: Object,
     default: () => ({})
   }
 });
-
-// Собираем массив для вывода иконок/скиллов
-const source = computed(() => {
-  if (props.options.type === 1) {
-    return [
-      {
-        item: props.options.skill,
-        src: props.options.img
-          ? new URL(`../assets/images/ui/${props.options.img}`, import.meta.url)
-              .href
-          : null,
-        size: props.options.img_size
-      }
-    ];
-  }
-  if (props.options.type === 2) {
-    return props.options.skill.map((s) => ({
-      item: s.item,
-      src: s.img
-        ? new URL(`../assets/images/ui/${s.img}`, import.meta.url).href
-        : null,
-      size: s.img_size
-    }));
-  }
-  return [];
-});
 </script>
 
 <template>
-  <!-- Multiple chips block -->
+  <!-- Multiple items chip block -->
   <div
-    v-if="options.type === 2 && source.length"
+    v-if="options.type === 2 && options.skill.length"
     class="skill block"
     :class="[
       { accented: options.skill[0].item === 'Vue' },
@@ -46,7 +18,7 @@ const source = computed(() => {
     ]"
   >
     <div
-      v-for="(skill, idx) in source"
+      v-for="(skill, idx) in options.skill"
       :key="idx"
       class="skill"
       :class="skill.item.toLowerCase()"
@@ -54,14 +26,14 @@ const source = computed(() => {
       <v-img
         v-if="skill.src"
         :src="skill.src"
-        :width="skill.size"
+        :width="skill.img_size"
         class="skill__icon"
-        :class="{ shifted: options.skill[0].item === 'Vue' }"
+        :class="{ shifted: skill.item === 'Vue' }"
       />
-      {{ skill.item }}
+      <div class="skill__name">{{ skill.item }}</div>
     </div>
   </div>
-  <!-- Single chip block -->
+  <!-- Single item chip block -->
   <div
     v-else-if="options.type === 1"
     class="skill simple"
@@ -72,14 +44,13 @@ const source = computed(() => {
     ]"
   >
     <v-img
-      v-if="source[0].src"
-      :src="source[0].src"
-      :min-width="source[0].size"
-      :alt="source[0].item"
+      v-if="options.src"
+      :src="options.src"
+      :min-width="options.img_size"
+      :alt="options.skill"
     />
-    {{ source[0].item }}
+    <div class="skill__name">{{ options.skill }}</div>
   </div>
-  <!-- </div> -->
 </template>
 <style lang="scss" scoped>
 .skill {
@@ -89,8 +60,6 @@ const source = computed(() => {
   display: flex;
   align-items: center;
   gap: 4px;
-  line-height: 1;
-  font-size: 0.85rem;
   background-color: rgb(var(--v-theme-background));
   position: relative;
   overflow: visible;
@@ -100,6 +69,11 @@ const source = computed(() => {
       position: relative;
       top: 2px;
     }
+  }
+  &__name {
+    line-height: 1;
+    font-size: 0.85rem;
+    @include Txt-ellipsis;
   }
   &.accented::before {
     content: '';

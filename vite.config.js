@@ -7,6 +7,10 @@ import { fileURLToPath, URL } from 'node:url';
 export default defineConfig(({ mode }) => ({
   base: mode === 'production' ? '/DmDrzohin-CV-2025/' : '/',
   plugins: [vue(), vuetify({ autoImport: true })],
+  build: {
+    // полностью отключаем data URI (все ассеты будут копироваться в dist/assets)
+    assetsInlineLimit: 0
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))

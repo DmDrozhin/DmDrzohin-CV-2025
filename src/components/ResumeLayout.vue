@@ -13,40 +13,16 @@ const store = useMainStore();
 const display = useDisplay();
 const isLoading = computed(() => store.loading || false);
 const resume = computed(() => store.resume || {});
-const drawer = ref(true); // open by default
+const drawer = ref(true); // unfolded by default
 const isSmallAndDown = computed(() => display.smAndDown ?? false);
 const isXSmall = computed(() => display.xs ?? false);
 
-// 1) Importing all images from folder
-const avatars = import.meta.glob('@/assets/images/avatars/*', { eager: true });
-// 2) Making object map like { name.jpeg: '/assets/images/name.jpeg' }
-const avatarMap = createAssetMap(avatars);
-// 3) Dynamic choice of the image
-const avatarUrl = computed(() => {
-  // define photo depending on current theme
-  const currentAvatar =
-    theme.name.value === 'light' ? 'avatar_light' : 'avatar_dark';
-  // if resume = null → return empty string
-  if (!store.resume || !store.resume[currentAvatar]) {
-    return '';
-  }
-  return avatarMap[store.resume[currentAvatar]] || '';
-});
-
-// The same for icons
 const icons = import.meta.glob('@/assets/images/ui/*', { eager: true });
 const iconsMap = createAssetMap(icons);
-const metaData = computed(() => {
-  if (!store.resume?.contacts?.length) {
-    return [];
-  }
-  return store.resume.contacts.map((it) => ({
-    item: it.item,
-    link: it.link,
-    icon: iconsMap[it.icon] || '',
-    size: it.size
-  }));
-});
+
+const avatarUrl = computed(() => store.currentAvatar || '');
+const contacts = computed(() => resume.value.contacts || []);
+
 const changeLanguage = (lang) => {
   if (lang === 'ua' || lang === 'en') {
     store.fetchResume(lang);
@@ -54,7 +30,9 @@ const changeLanguage = (lang) => {
 };
 const changeTheme = (themeName) => {
   if (themeName === 'light' || themeName === 'dark') {
+    // Change theme in store
     store.setTheme(themeName);
+    // Change theme in Vuetify
     theme.change(themeName);
   }
 };
@@ -88,7 +66,7 @@ const translations = {
   },
   en: {
     summary: 'summary',
-    experience: 'experience',
+    experience: 'work experience',
     education: 'education',
     skills: 'skills',
     certificates: 'certificates',
@@ -101,6 +79,7 @@ const groupedSections = computed(() => {
   }
   const t = translations[lang.value];
   return {
+    // Left fide
     main: [
       { key: t.summary, value: resume.value.summary || [], id: 'summary' },
       {
@@ -110,6 +89,7 @@ const groupedSections = computed(() => {
       },
       { key: t.education, value: resume.value.education || [], id: 'education' }
     ],
+    // Sidebar
     extra: [
       { key: t.skills, value: resume.value.skills || [], id: 'skills' },
       {
@@ -123,23 +103,32 @@ const groupedSections = computed(() => {
 });
 const activeSlide = ref(0);
 const darkSlidesMap = ref([1]);
+// If slide is dark, we can style it specifically
 const isSlideDark = computed(
   () => darkSlidesMap.value.indexOf(activeSlide.value) !== -1
 );
-// Importing all images from folder
+// Importing all background images from folder
 const headerBackground = import.meta.glob('@/assets/images/background/*', {
   eager: true
 });
-// 2) Making object map like { name.jpeg: '/assets/images/name.jpeg' }
 const urlMap = Object.values(createAssetMap(headerBackground));
-// Initiating get data request
+
+// Initiating GET data request
 onBeforeMount(() => store.fetchResume());
-// const appBar = ref(null);
 </script>
 <template>
   <div class="my-resume">
     <PagePreloader v-if="isLoading" />
-
+    <v-btn
+      v-if="!drawer"
+      class="my-resume__button show-skills"
+      variant="flat"
+      color="#77A608"
+      size="x-small"
+      position="sticky"
+      @click="drawer = !drawer"
+      >skills</v-btn
+    >
     <v-app-bar class="my-resume__header" absolute height="auto">
       <div ref="resumeHeader" class="user__wrapper">
         <div class="user__adaptive-row" :class="{ 'light-text': isSlideDark }">
@@ -172,9 +161,9 @@ onBeforeMount(() => store.fetchResume());
             <v-icon v-else size="150" color="#969595" icon="mdi-account-tie" />
           </div>
         </div>
-        <div v-if="metaData.length" class="user__meta-data">
+        <div v-if="contacts.length" class="user__meta-data">
           <v-btn
-            v-for="contact in metaData"
+            v-for="contact in contacts"
             :key="contact.item"
             :href="contact.link"
             target="_blank"
@@ -200,21 +189,18 @@ onBeforeMount(() => store.fetchResume());
               <v-btn
                 v-if="isSmallAndDown.value"
                 v-bind="props"
-                class="user__button skills"
+                class="user__button skills animated-button"
                 icon
                 :size="isXSmall.value ? 'large' : 'x-small'"
-                position="absolute"
-                location="end"
                 :class="{ small: isXSmall }"
                 @click="drawer = !drawer"
               >
-                <v-icon
-                  :size="isXSmall.value ? 48 : 32"
-                  color="icon"
-                  class="user__button-icon"
+                <v-img
+                  :width="isXSmall.value ? 48 : 32"
+                  class="animated-button__icon"
                   :class="{ open: drawer }"
-                  >mdi-arrow-left-circle</v-icon
-                >
+                  :src="iconsMap['arrow-bold-left.svg']"
+                />
               </v-btn>
             </template>
           </v-tooltip>
@@ -242,15 +228,6 @@ onBeforeMount(() => store.fetchResume());
     <!-- MAIN -->
     <v-main class="my-resume__main">
       <v-container class="my-resume__container">
-        <div
-          v-if="!drawer"
-          v-ripple
-          role="button"
-          class="my-resume__bookmark"
-          @click="drawer = !drawer"
-        >
-          skills
-        </div>
         <BaseSection
           v-for="(section, idx) in groupedSections.main"
           :key="idx"
@@ -293,35 +270,28 @@ onBeforeMount(() => store.fetchResume());
     }
   }
   &__container {
+    position: relative;
     padding: 8px 16px 16px;
   }
-  &__bookmark {
-    position: absolute;
-    bottom: 60px;
-    right: -40px;
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    font-weight: 500;
-    line-height: 1;
+  &__button.show-skills {
+    position: fixed;
+    left: auto;
+    right: -34px;
+    top: 50vh;
     transform: rotate(-90deg);
-    outline: 1px solid $green-start;
-    letter-spacing: 0.5rem;
-    padding: 2px 8px;
-    border-radius: 8px 8px 0 0;
-    cursor: pointer;
-    transition: background 0.3s ease-in;
-    &:hover {
-      background-color: rgba($black, 0.1);
+    transform-origin: center;
+    border-radius: 6px 6px 0 0;
+    padding: 0 2px 0 8px;
+    z-index: 100;
+    display: none;
+    @include media-down(xs) {
+      display: inline-block;
     }
   }
 }
 .user {
   &__wrapper {
     width: 100%;
-    @include media-down(xs) {
-    }
-    @include media-down(xxs) {
-    }
   }
   &__adaptive-row {
     position: relative;
@@ -427,26 +397,16 @@ onBeforeMount(() => store.fetchResume());
   }
   &__button.skills {
     flex-shrink: 0;
+    position: absolute;
     margin: 0 8px;
-    right: 16px !important;
-    transition: all 0.3s ease-in;
+    right: 16px;
     z-index: 2;
-    @media screen and (max-width: 380px) {
+    transition: all 0.3s ease-in;
+    @include media-down(xs) {
       top: unset !important;
-      bottom: -16px;
+      bottom: 1rem;
       margin: 0;
     }
-  }
-  &__button.skills::before {
-    content: '';
-    position: absolute;
-    $offset: 3px;
-    top: -$offset;
-    left: -$offset;
-    width: calc(100% + $offset * 2);
-    height: calc(100% + $offset * 2);
-    border-radius: 50%;
-    background-color: rgb(var(--v-theme-background-skills-button));
   }
   &__button.meta-item:hover::before {
     content: '';
@@ -463,12 +423,6 @@ onBeforeMount(() => store.fetchResume());
     color: $white;
     line-height: 1;
     @include Txt-ellipsis;
-  }
-  &__button-icon {
-    transition: transform 0.3s linear;
-    &.open {
-      transform: rotate(-180deg);
-    }
   }
   &__gradient {
     position: relative;
@@ -500,6 +454,53 @@ onBeforeMount(() => store.fetchResume());
     }
   }
 }
+.animated-button {
+  position: relative;
+  &::before {
+    content: '•';
+    position: absolute;
+    top: 8px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    color: $green-md;
+    animation: circular-move 8s linear infinite;
+    z-index: 100;
+    @include media-down(xs) {
+      top: 19px;
+    }
+  }
+  &__icon {
+    transition: transform 0.3s linear;
+    border-radius: 50%;
+    outline: 6px solid rgb(var(--v-theme-background-skills-button));
+    &.open {
+      transform: rotate(-180deg);
+    }
+    // &::before {
+    //   content: '';
+    //   position: absolute;
+    //   $offset: 3px;
+    //   top: -$offset;
+    //   left: -$offset;
+    //   width: calc(100% + $offset * 2);
+    //   height: calc(100% + $offset * 2);
+    //   border-radius: 50%;
+    //   background-color: rgb(var(--v-theme-background-skills-button));
+    //   z-index: -1;
+    // }
+  }
+  @keyframes circular-move {
+    0% {
+      transform: rotate(0deg) translateX(32px) rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg) translateX(32px) rotate(-360deg);
+    }
+  }
+}
 </style>
 
 <style lang="scss">
@@ -528,6 +529,16 @@ onBeforeMount(() => store.fetchResume());
       flex-direction: column;
       border-radius: inherit;
       padding: 12px;
+      @include Scrollbar;
+    }
+  }
+  &__button.show-skills {
+    .v-btn {
+      &__content {
+        line-height: 1;
+        letter-spacing: 0.5rem;
+        text-transform: uppercase;
+      }
     }
   }
 }

@@ -1,5 +1,5 @@
 <script setup>
-import { computed, ref } from 'vue';
+import { computed } from 'vue';
 import SectionTitle from '@/components/SectionTitle.vue';
 import SkillBlock from '@/components/SkillBlock.vue';
 import CertificateBlock from '@/components/CertificateBlock.vue';
@@ -22,10 +22,7 @@ const skills = computed(() => props.options.value || []);
       class="section__title"
       :class="options.id || ''"
     />
-    <div
-      v-if="options.id === 'skills' && skills.length"
-      class="section skills"
-    >
+    <div v-if="options.id === 'skills' && skills.length" class="section skills">
       <SkillBlock
         v-for="skill in skills"
         :key="skill.id"
@@ -80,6 +77,16 @@ const skills = computed(() => props.options.value || []);
       position: relative;
       left: -6px;
       padding: 0 8px 0 0;
+    }
+  }
+  &.certificates {
+    .certificate.order-1 {
+      margin-inline-start: auto;
+      margin-right: 8px;
+    }
+    .certificate.order-2 {
+      margin-inline-end: auto;
+      margin-left: 20px;
     }
   }
 }

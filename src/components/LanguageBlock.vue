@@ -36,6 +36,9 @@ defineProps({
   padding: 0 8px;
   background-color: rgb(var(--v-theme-background));
   outline: 1px solid rgb(var(--v-theme-skill-chip-outline));
+  &__name {
+    white-space: nowrap;
+  }
 }
 </style>
 

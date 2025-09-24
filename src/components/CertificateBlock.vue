@@ -25,7 +25,7 @@ defineProps({
   &__name {
     display: grid;
     place-content: center;
-    min-height: 28px;
+    min-height: 24px;
     border-radius: 50px;
     padding: 0 8px;
     background-color: rgb(var(--v-theme-background));
