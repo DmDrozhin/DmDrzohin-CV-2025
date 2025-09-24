@@ -1,26 +1,33 @@
+@use "sass:color";
+
 @mixin Prevent-select {
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
-@mixin Scrollbar {
+@mixin Scrollbar($thumb: #969595, $track: transparent) {
   overflow-y: auto;
+
+  // Chrome, Edge, Safari
   &::-webkit-scrollbar {
     width: 6px;
   }
   &::-webkit-scrollbar-track {
-    background: transparent;
+    background: $track;
     border-radius: 4px;
-    width: 6px;
   }
   &::-webkit-scrollbar-thumb {
-    background: $black-lighten3;
+    background: $thumb;
     border-radius: 4px;
-    width: 6px;
   }
   &::-webkit-scrollbar-thumb:hover {
-    background: $black-lighten3;
+    @debug color.adjust($thumb, $lightness: -10%);
+    background: $thumb;
   }
+
+  // Firefox
+  scrollbar-width: thin; // auto | thin | none
+  scrollbar-color: #{$thumb} #{$track}; // thumb | track
 }
 @mixin Chars-limit($limit: 4) {
   max-width: #{$limit}ch;
