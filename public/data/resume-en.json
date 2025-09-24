@@ -138,7 +138,7 @@
       "id": 106,
       "type": 1,
       "skill": "Swiper Element",
-      "img": "swiper.svg",
+      "img": "swiper-logo.svg",
       "img_size": 20
     },
     {
@@ -242,6 +242,7 @@
   ],
   "certificates": [
     { "certificate": "JavaScript Essential 2021", "institution": "ITDVN" },
+    { "certificate": "JavaScript Patterns", "institution": "ITDVN" },
     { "certificate": "HTML/CSS", "institution": "ITDVN" },
     { "certificate": "Vue.js", "institution": "ITDVN" }
   ],

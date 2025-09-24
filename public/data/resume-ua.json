@@ -31,7 +31,7 @@
     }
   ],
   "summary": [
-    "Frontend розробник (Vue.js) з понад 3 роками досвіду у створенні та підтримці компонентів на Vue 2/3 із використанням як Composition API, так і Options API. Маю експертизу у побудові системи стилізації, що поєднує можливості SCSS (змінні, міксини, хелпери), динамічну стилізацію у Vue (через реактивні дані та прив’язку класів) та кастомізацію бібліотечних компонентів Vuetify відповідно до дизайн-системи. Реалізовував інтеграцію та гнучке налаштування <a href='https://swiperjs.com/element' 'target='_blank' title='Go to Swiper'>Swiper Element</a> для створення інтерактивних UI-рішень. Створюю багаторазові компоненти з адаптивною та pixel-perfect версткою."
+    "Frontend розробник (Vue.js) з понад 3 роками досвіду у створенні та підтримці компонентів на Vue 2/3 із використанням як Composition API, так і Options API. Маю досвід у побудові системи стилізації, що поєднує можливості SCSS (змінні, міксини, хелпери), динамічну стилізацію компонентів (через реактивні дані та прив’язку класів) та кастомізацію бібліотечних компонентів Vuetify відповідно до дизайн-системи. Реалізовував інтеграцію та гнучке налаштування <a href='https://swiperjs.com/element' 'target='_blank' title='Go to Swiper'>Swiper Element</a> для створення інтерактивних UI-рішень. Створюю багаторазові компоненти з адаптивною та pixel-perfect версткою."
   ],
   "experience": [
     {
@@ -138,7 +138,7 @@
       "id": 106,
       "type": 1,
       "skill": "Swiper Element",
-      "img": "swiper.svg",
+      "img": "swiper-logo.svg",
       "img_size": 20
     },
     {
@@ -242,11 +242,12 @@
   ],
   "certificates": [
     { "certificate": "JavaScript Essential 2021", "institution": "ITDVN" },
+    { "certificate": "JavaScript Patterns", "institution": "ITDVN" },
     { "certificate": "HTML/CSS", "institution": "ITDVN" },
     { "certificate": "Vue.js", "institution": "ITDVN" }
   ],
   "languages": [
-    { "language": "Англійська", "level": "Робочий рівень" },
+    { "language": "Англійська", "level": "Intermediate" },
     { "language": "Українська | Російська", "level": "Рідна" }
   ]
 }
