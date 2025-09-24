@@ -10,8 +10,7 @@ watch(
     if (newTheme !== undefined) {
       emit('change-theme', newTheme);
     }
-  },
-  { immediate: true }
+  }
 );
 watch(
   () => currentLanguage.value,
@@ -19,8 +18,7 @@ watch(
     if (lang !== undefined) {
       emit('change-lang', lang);
     }
-  },
-  { immediate: true }
+  }
 );
 </script>
 <template>
