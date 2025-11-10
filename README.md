@@ -1,5 +1,49 @@
-# This resume made with Vue 3 (Composition API) + Vuetify 3 + Swiper (header background) + Vite. Has two themes (light, dark) and two languages EN and UA
+# 💼 My Resume 2025
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## 🇺🇦 Опис проєкту
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+**My Resume 2025** — це сучасне онлайн-резюме, створене на основі **Vue 3.5 (Composition API)** з використанням **Vite** для збірки, **Vuetify 3.1** для UI-компонентів і **Pinia** для керування станом.  
+Додатково інтегровано **Swiper Slider**, який змінює фон хедера при переході між слайдами, створюючи плавний і динамічний ефект.
+
+### ✨ Основні можливості
+
+- 🌗 **Дві теми** — світла (за замовчуванням) і темна  
+- 🌍 **Два інтерфейсні мови** — українська 🇺🇦 та англійська 🇬🇧  
+- 🧠 **Сучасний стек**: Vue 3.5 + Vite + Vuetify 3.1 + Pinia  
+- 🖼️ **Анімований Swiper Slider**, що впливає на фон хедера  
+- 🔍 **SEO-оптимізація** через плагін [`@unhead/vue`](https://github.com/unhead/unhead)  
+- ⚡ Швидке завантаження та модульна архітектура  
+
+### 🛠 Використані технології
+
+| Технологія | Призначення |
+|-------------|--------------|
+| **Vue 3.5 (Composition API)** | Фреймворк для фронтенду |
+| **Vite** | Швидка збірка проєкту |
+| **Vuetify 3.1** | Компонентна бібліотека Material Design |
+| **Pinia** | Стан управління |
+| **Swiper Slider** | Інтерактивні слайди |
+| **@unhead/vue** | SEO-метатеги та керування head |
+
+
+🇬🇧 Project Description
+
+My Resume 2025 is a modern online résumé built with Vue 3.5 (Composition API), powered by Vite, styled with Vuetify 3.1, and managed with Pinia.
+The project features an elegant Swiper Slider that dynamically changes the header background, adding smooth visual transitions.
+
+✨ Key Features:
+- 🌗 Two themes — light (default) and dark
+- 🌍 Two languages — Ukrainian 🇺🇦 and English 🇬🇧
+- 🧠 Modern tech stack: Vue 3.5 + Vite + Vuetify 3.1 + Pinia
+- 🖼️ Animated Swiper Slider controlling header background
+- 🔍 SEO optimization via @unhead/vue
+- ⚡ Fast loading and modular architecture
+
+🛠 Tech Stack
+Technology	Purpose
+Vue 3.5 (Composition API)	Frontend framework
+Vite	Build tool
+Vuetify 3.1	Material Design UI library
+Pinia	State management
+Swiper Slider	Interactive slides
+@unhead/vue	SEO & head management
