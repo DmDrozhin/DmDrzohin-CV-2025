@@ -1,24 +1,14 @@
 @font-face {
-    font-family: 'Segoe UI';
-    src: url('@/assets/fonts/SegoeUI.eot');
-    src:
-        local('Segoe UI'),
-        local('SegoeUI'),
-        url('@/assets/fonts/SegoeUI.eot?#iefix') format('embedded-opentype'),
-        url('@/assets/fonts/SegoeUI.woff') format('woff');
-    font-display: swap;
-    font-weight: normal;
+    font-family: 'Jost';
+    src: local('Jost'), local('jost'), url('@/assets/fonts/Jost-Regular.woff2') format('woff2');
     font-style: normal;
+    font-weight: normal;
+    font-display: swap;
 }
 @font-face {
-    font-family: 'Segoe UI';
-    src: url('@/assets/fonts/SegoeUI-SemiBold.eot');
-    src:
-        local('Segoe UI Semibold'),
-        local('SegoeUI-SemiBold'),
-        url('@/assets/fonts/SegoeUI-SemiBold.eot?#iefix')
-            format('embedded-opentype'),
-        url('@/assets/fonts/SegoeUI-SemiBold.woff') format('woff');
-    font-weight: 600;
+    font-family: 'Jost';
+    src: local('Jost'), local('jost'), url('@/assets/fonts/Jost-Bold.woff2') format('woff2');
     font-style: normal;
+    font-weight: bold;
+    font-display: swap;
 }

@@ -8,6 +8,7 @@ import { useMainStore } from '@/stores/main.store.js';
 import { createAssetMap } from '@/utils/assets';
 import SwitchersBlock from '@/components/SwitchersBlock.vue';
 import SliderSwiper from '@/components/SliderSwiper.vue';
+import { mdiAccountTie } from '@mdi/js';
 const theme = useTheme();
 const store = useMainStore();
 const display = useDisplay();
@@ -158,7 +159,7 @@ onBeforeMount(() => store.fetchResume());
               width="150"
               alt="avatar"
             />
-            <v-icon v-else size="150" color="#969595" icon="mdi-account-tie" />
+            <v-icon v-else size="150" color="#969595" :icon="mdiAccountTie" />
           </div>
         </div>
         <div v-if="contacts.length" class="user__meta-data">
