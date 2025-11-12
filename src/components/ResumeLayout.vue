@@ -127,6 +127,7 @@ onBeforeMount(() => store.fetchResume());
       color="#77A608"
       size="x-small"
       position="sticky"
+      aria-label="open skills"
       @click="drawer = !drawer"
       >skills</v-btn
     >
@@ -157,7 +158,7 @@ onBeforeMount(() => store.fetchResume());
               :src="avatarUrl"
               height="150"
               width="150"
-              alt="avatar"
+              alt="candidate photo"
             />
             <v-icon v-else size="150" color="#969595" :icon="mdiAccountTie" />
           </div>
@@ -172,12 +173,14 @@ onBeforeMount(() => store.fetchResume());
             tag="a"
             variant="text"
             size="small"
+            aria-label="open contact"
             class="user__button meta-item"
           >
             <v-img
               :src="contact.icon"
               :height="contact.size"
               :width="contact.size"
+              alt="contacts icon"
             />
             <span class="user__button-txt">{{ contact.item }}</span>
           </v-btn>
@@ -194,6 +197,7 @@ onBeforeMount(() => store.fetchResume());
                 icon
                 :size="isXSmall.value ? 'large' : 'x-small'"
                 :class="{ small: isXSmall }"
+                aria-label="open skills"
                 @click="drawer = !drawer"
               >
                 <v-img
@@ -201,6 +205,7 @@ onBeforeMount(() => store.fetchResume());
                   class="animated-button__icon"
                   :class="{ open: drawer }"
                   :src="iconsMap['arrow-bold-left.svg']"
+                  alt="open skills icon"
                 />
               </v-btn>
             </template>

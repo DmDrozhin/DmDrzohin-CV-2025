@@ -51,7 +51,7 @@ export default {
       :key="idx"
       class="bg-slider__slide"
     >
-      <v-img v-if="img" class="bg-slider__image" :src="img" cover location />
+      <v-img v-if="img" class="bg-slider__image" :src="img" cover location alt="header background" />
     </swiper-slide>
   </swiper>
 </template>

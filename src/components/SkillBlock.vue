@@ -29,6 +29,7 @@ defineProps({
         :width="skill.img_size"
         class="skill__icon"
         :class="{ shifted: skill.item === 'Vue' }"
+        alt="skill icon"
       />
       <div class="skill__name">{{ skill.item }}</div>
     </div>

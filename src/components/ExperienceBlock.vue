@@ -33,7 +33,7 @@ const metaData = computed(() => {
       <div class="experience__position">{{ entry.position }}</div>
       <div class="experience__wrapper">
         <div class="experience__flex-wrapper">
-          <v-img :src="entry.company_icon" :width="entry.company_icon_size"/>
+          <v-img :src="entry.company_icon" :width="entry.company_icon_size" alt="entity logo"/>
           <div class="experience__company">{{ entry.company }}</div>
         </div>
         <div class="experience__period">{{ entry.period }}</div>

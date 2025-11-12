@@ -29,8 +29,8 @@ watch(
       class="switcher-block__toggle language"
       density="compact"
     >
-      <v-btn variant="text" size="x-small" slim value="ua">UA</v-btn>
-      <v-btn variant="text" size="x-small" slim value="en">EN</v-btn>
+      <v-btn variant="text" size="x-small" slim value="ua" aria-label="switch language">UA</v-btn>
+      <v-btn variant="text" size="x-small" slim value="en" aria-label="switch language">EN</v-btn>
     </v-btn-toggle>
     <v-btn-toggle
       :key="2"
@@ -38,8 +38,8 @@ watch(
       class="switcher-block__toggle theme"
       density="compact"
     >
-      <v-btn variant="text" size="x-small" slim value="light">Light</v-btn>
-      <v-btn variant="text" size="x-small" slim value="dark">Dark</v-btn>
+      <v-btn variant="text" size="x-small" slim value="light" aria-label="switch theme">Light</v-btn>
+      <v-btn variant="text" size="x-small" slim value="dark" aria-label="switch theme">Dark</v-btn>
     </v-btn-toggle>
   </div>
 </template>
