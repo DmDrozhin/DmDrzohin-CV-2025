@@ -29,8 +29,8 @@ html {
   -webkit-font-smoothing: antialiased;
   height: 100%;
   width: 100%;
-  scrollbar-gutter: stable both-edges;
   font-size: 16px;
+  // scrollbar-gutter: stable both-edges; // this makes unwanted shift of main div block guidelines toward right for the width of scrollbar
 }
 
 body {

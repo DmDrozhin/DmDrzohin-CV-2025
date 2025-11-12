@@ -350,7 +350,9 @@ onBeforeMount(() => store.fetchResume());
     width: fit-content;
     position: relative;
   }
-  // &__contacts {}
+  &__photo-wrapper {
+    align-content: end;
+  }
   &__photo {
     grid-area: photo;
     border-radius: 16px 0 0 0 !important;
