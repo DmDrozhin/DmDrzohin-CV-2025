@@ -23,10 +23,10 @@
 | **Vuetify 3.1** | Компонентна бібліотека Material Design |
 | **Pinia** | Стан управління |
 | **Swiper Slider** | Інтерактивні слайди |
-| **@unhead/vue** | SEO-метатеги та керування head |
 
 
-🇬🇧 Project Description
+
+## 🇬🇧 Project Description
 
 My Resume 2025 is a modern online résumé built with Vue 3.5 (Composition API), powered by Vite, styled with Vuetify 3.1, and managed with Pinia.
 The project features an elegant Swiper Slider that dynamically changes the header background, adding smooth visual transitions.
@@ -36,7 +36,6 @@ The project features an elegant Swiper Slider that dynamically changes the heade
 - 🌍 Two languages — Ukrainian 🇺🇦 and English 🇬🇧
 - 🧠 Modern tech stack: Vue 3.5 + Vite + Vuetify 3.1 + Pinia
 - 🖼️ Animated Swiper Slider controlling header background
-- 🔍 SEO optimization via @unhead/vue
 - ⚡ Fast loading and modular architecture
 
 🛠 Tech Stack
