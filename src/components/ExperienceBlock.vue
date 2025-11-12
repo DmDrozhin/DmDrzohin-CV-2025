@@ -52,6 +52,7 @@ const metaData = computed(() => {
 <style lang="scss" scoped>
 .experience {
   width: 100%;
+  min-height: 500px;
   &__position {
     font-size: 1rem;
     font-weight: 600;

@@ -55,8 +55,7 @@ const skills = computed(() => props.options.value || []);
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  padding: 8px 0;
-  // &__title {}
+  padding: 6px 0;
   &.skills {
     align-content: flex-start;
     gap: 8px;

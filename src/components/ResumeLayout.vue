@@ -272,7 +272,7 @@ onBeforeMount(() => store.fetchResume());
   }
   &__container {
     position: relative;
-    padding: 8px 16px 16px;
+    padding: 16px;
   }
   &__button.show-skills {
     position: fixed;

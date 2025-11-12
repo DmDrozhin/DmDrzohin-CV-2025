@@ -73,7 +73,6 @@ defineProps({
   &__name {
     line-height: 1;
     font-size: 0.85rem;
-    @include Txt-ellipsis;
   }
   &.accented::before {
     content: '';
