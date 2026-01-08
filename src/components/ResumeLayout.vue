@@ -253,10 +253,15 @@ onBeforeMount(() => store.fetchResume());
   height: fit-content;
   min-height: 1123px;
   position: relative;
-  margin: 0 auto;
+  margin: 24px auto;
   overflow: hidden;
   background-color: rgba(var(--v-theme-background-page));
   box-shadow: 0 0 16px rgba(0, 0, 0, 0.15);
+  @include media-down(sm-down) {
+    margin: 0 auto;
+    box-shadow: none;
+    min-height: 100vh;
+  }
   &__header {
     overflow: visible !important;
   }
@@ -276,6 +281,7 @@ onBeforeMount(() => store.fetchResume());
     }
   }
   &__container {
+    min-height: 940px;
     position: relative;
     padding: 16px;
   }
