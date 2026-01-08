@@ -1,7 +1,7 @@
 {
   "name": "Dmitriy Drozhzhin",
   "title": "Frontend Developer (Vue.js)",
-  "location": "Location: Kiev, UA, Open to Remote",
+  "location": "Location: Vyshneve, Kyiv Oblast, UA, Open to Remote",
   "avatar_light": "avatarLightTheme.jpeg",
   "avatar_dark": "avatarDarkTheme.jpeg",
   "contacts": [
@@ -31,7 +31,7 @@
     }
   ],
   "summary": [
-    "Frontend Developer (Vue.js) with over 3 years of experience in building and maintaining components on Vue 2/3 using both Composition API and Options API. Skilled in developing a styling system that combines SCSS capabilities (variables, mixins, helpers), dynamic styling in Vue (through reactive data and class bindings), and customization of Vuetify library components according to the project’s design system. Implemented integration and fine-tuning of <a href='https://swiperjs.com/element' target='_blank' title='Go to Swiper'>Swiper Element</a> to deliver interactive UI solutions. Experienced in creating reusable components with responsive and pixel-perfect layout."
+    "Frontend Developer with 3+ years of experience building scalable, maintainable Vue 2/3 applications using Composition and Options APIs. Experienced with Vue 3 + Vite + SSG, SEO and performance optimization based on Lighthouse metrics. Skilled in creating reusable, responsive, pixel-perfect components, developing SCSS-based styling systems, customizing Vuetify components, integrating Swiper Element, and leveraging AI tools to improve productivity and code quality. Strong focus on clean architecture, code maintainability, and long-term project scalability."
   ],
   "experience": [
     {
@@ -96,14 +96,14 @@
   ],
   "skills": [
     {
-      "id": 104,
+      "id": 101,
       "type": 1,
       "skill": "JavaScript",
       "img": "js.svg",
-      "img_size": 20
+      "img_size": 24
     },
     {
-      "id": 101,
+      "id": 102,
       "type": 2,
       "skill": [
         { "item": "Vue", "img": "vue.svg", "img_size": 28 },
@@ -112,21 +112,28 @@
       ]
     },
     {
-      "id": 102,
+      "id": 103,
+      "type": 1,
+      "skill": "Composition | Options API",
+      "img": "",
+      "img_size": 20
+    },
+    {
+      "id": 104,
       "type": 1,
       "skill": "Pinia",
       "img": "pinia.svg",
       "img_size": 20
     },
     {
-      "id": 103,
+      "id": 105,
       "type": 1,
       "skill": "Vuetify",
       "img": "vuetify.svg",
       "img_size": 24
     },
     {
-      "id": 105,
+      "id": 106,
       "type": 2,
       "skill": [
         { "item": "HTML", "img": "html.svg", "img_size": 20 },
@@ -135,108 +142,108 @@
       ]
     },
     {
-      "id": 106,
+      "id": 107,
       "type": 1,
       "skill": "Swiper Element",
-      "img": "swiper-logo.svg",
+      "img": "swiper.svg",
       "img_size": 20
     },
     {
-      "id": 107,
+      "id": 108,
       "type": 1,
       "skill": "Webpack",
       "img": "webpack.svg",
       "img_size": 20
     },
     {
-      "id": 108,
+      "id": 109,
       "type": 1,
       "skill": "Vite",
       "img": "vite.svg",
       "img_size": 20
     },
     {
-      "id": 109,
+      "id": 110,
       "type": 1,
-      "skill": "Figma",
-      "img": "figma.svg",
+      "skill": "Vite SSG",
+      "img": "",
       "img_size": 20
     },
     {
-      "id": 110,
+      "id": 111,
+      "type": 1,
+      "skill": "Figma",
+      "img": "figma.svg",
+      "img_size": 16
+    },
+    {
+      "id": 112,
       "type": 1,
       "skill": "Node.js",
       "img": "node.svg",
       "img_size": 32
     },
     {
-      "id": 111,
-      "type": 1,
-      "skill": "BrowserStack",
-      "img": "browserstack.svg",
-      "img_size": 20
-    },
-    {
-      "id": 112,
+      "id": 113,
       "type": 1,
       "skill": "TypeScript",
-      "img": "typescript.svg",
-      "img_size": 20
+      "img": "ts.png",
+      "img_size": 24
     },
     {
-      "id": 113,
+      "id": 114,
       "type": 1,
       "skill": "Git",
       "img": "git.svg",
       "img_size": 20
     },
     {
-      "id": 114,
+      "id": 115,
       "type": 1,
       "skill": "CorelDRAW",
       "img": "coreldraw.svg",
       "img_size": 16
     },
     {
-      "id": 115,
+      "id": 116,
       "type": 1,
       "skill": "REST API",
       "img": "",
       "img_size": 20
     },
+        {
+      "id": 117,
+      "type": 1,
+      "skill": "Lighthouse",
+      "img": "lighthouse.png",
+      "img_size": 24
+    },
+        {
+      "id": 118,
+      "type": 1,
+      "skill": "SEO/Performance optimization",
+      "img": "",
+      "img_size": 24
+    },
     {
-      "id": 116,
+      "id": 119,
       "type": 1,
       "skill": "PerfectPixel",
       "img": "perfectpixel.svg",
       "img_size": 20
     },
     {
-      "id": 117,
-      "type": 1,
-      "skill": "Composition | Options API",
-      "img": "",
-      "img_size": 20
-    },
-    {
-      "id": 118,
+      "id": 120,
       "type": 1,
       "skill": "Responsive Design",
       "img": "",
       "img_size": 20
     },
     {
-      "id": 119,
+      "id": 121,
       "type": 1,
-      "skill": "Cross-Browser Compatibility",
-      "img": "",
-      "img_size": 20
-    },
-    {
-      "id": 120,
-      "type": 1,
-      "skill": "UI/UX Principles",
-      "img": "",
+      "skill": "BrowserStack Testing",
+      "img": "browserstack.svg",
       "img_size": 20
     }
   ],
