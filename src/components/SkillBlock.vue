@@ -46,9 +46,10 @@ defineProps({
   >
     <v-img
       v-if="options.src"
+      class="skill__icon"
       :src="options.src"
       :min-width="options.img_size"
-      :alt="options.skill"
+      :alt="`${options.skill} icon`"
     />
     <div class="skill__name">{{ options.skill }}</div>
   </div>
@@ -66,6 +67,7 @@ defineProps({
   overflow: visible;
   z-index: auto;
   &__icon {
+    flex-shrink: 0;
     &.shifted {
       position: relative;
       top: 2px;
