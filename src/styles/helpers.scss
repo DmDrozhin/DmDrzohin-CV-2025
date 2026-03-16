@@ -1,4 +1,4 @@
-@use "sass:color";
+@use 'sass:color';
 
 @mixin Prevent-select {
   -webkit-user-select: none;
@@ -8,7 +8,6 @@
 @mixin Scrollbar($thumb: #969595, $track: transparent) {
   overflow-y: auto;
 
-  // Chrome, Edge, Safari
   &::-webkit-scrollbar {
     width: 6px;
   }
@@ -21,13 +20,11 @@
     border-radius: 4px;
   }
   &::-webkit-scrollbar-thumb:hover {
-    @debug color.adjust($thumb, $lightness: -10%);
-    background: $thumb;
+    background: color.adjust($thumb, $lightness: -10%);
   }
 
-  // Firefox
-  scrollbar-width: thin; // auto | thin | none
-  scrollbar-color: #{$thumb} #{$track}; // thumb | track
+  scrollbar-width: thin;
+  scrollbar-color: #{$thumb} #{$track};
 }
 @mixin Chars-limit($limit: 4) {
   max-width: #{$limit}ch;
