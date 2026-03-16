@@ -147,9 +147,11 @@ onBeforeMount(() => store.fetchResume());
               @change-lang="changeLanguage"
               @change-theme="changeTheme"
             />
-            <div class="user__name">{{ resume.name }}</div>
-            <div class="user__title">{{ resume.title }}</div>
-            <div class="user__location">{{ resume.location }}</div>
+            <div class="user__description person">
+              <div class="person__name">{{ resume.name }}</div>
+              <div class="person__title">{{ resume.title }}</div>
+              <div class="person__location">{{ resume.location }}</div>
+            </div>
           </div>
           <div class="user__photo-wrapper">
             <v-img
@@ -345,22 +347,25 @@ onBeforeMount(() => store.fetchResume());
     height: -webkit-fill-available;
     z-index: 0;
   }
-  &__name {
-    width: fit-content;
-    font-size: 2rem;
-    letter-spacing: 2.7px;
-    margin-bottom: 8px;
-    position: relative;
+  &__description {
+    text-align: left;
+    @include media-down(xxs) {
+      text-align: center;
+    }
+    .person {
+      &__name {
+        font-size: 2rem;
+        letter-spacing: 2.7px;
+        margin-bottom: 8px;
+      }
+      &__title {
+        font-size: 1.4rem;
+      }
+      // &__location {
+      // }
+    }
   }
-  &__title {
-    width: fit-content;
-    font-size: 1.4rem;
-    position: relative;
-  }
-  &__location {
-    width: fit-content;
-    position: relative;
-  }
+
   &__photo-wrapper {
     align-content: end;
   }
